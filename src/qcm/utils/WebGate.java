@@ -22,7 +22,7 @@ public class WebGate {
 
 	public WebGate() {
 		modelLists = new HashMap<>();
-		baseUrl = "http://127.0.0.1:8080/Quiz-Rest/rest/";
+		baseUrl = "http://127.0.0.1:8080/Q2Base_Rest/rest/";
 		restUrlMappings = new HashMap<>();
 		restUrlMappings.put("Utilisateur", "user");
 		restUrlMappings.put("Questionnaire", "quiz");
