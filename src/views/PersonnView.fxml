@@ -82,11 +82,12 @@
                         </Text>
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="81.0" layoutY="245.0" prefHeight="40.0" prefWidth="362.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                  <ButtonBar layoutX="56.0" layoutY="421.0" prefHeight="40.0" prefWidth="372.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="78.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#handleAddUser" onDragDetected="#handleAddUser" prefHeight="1.0" text="Ajouter" />
                         <Button mnemonicParsing="false" onAction="#handleEditUser" text="Modifier" />
                         <Button mnemonicParsing="false" onAction="#deleteUser" text="Supprimer" />
+                        <Button fx:id="btRetour" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="25.0" prefWidth="75.0" text="Retour" />
                     </buttons>
                   </ButtonBar>
                   <ListView fx:id="lvQuizzes" layoutX="7.0" layoutY="155.0" prefHeight="260.0" prefWidth="491.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="155.0" />

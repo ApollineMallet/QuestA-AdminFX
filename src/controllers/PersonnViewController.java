@@ -6,6 +6,7 @@ import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -27,6 +28,9 @@ public class PersonnViewController extends AbstractController {
 	@FXML
 	private TableColumn<Utilisateur, String> nomColumn;
 
+	@FXML
+	private Button btRetour;
+	
 	@FXML
 	private Label nomTitre;
 	@FXML
@@ -108,6 +112,10 @@ public class PersonnViewController extends AbstractController {
 		// lblCount.textProperty().bind(mainApp.getTaskQueue().getService().progressProperty().asString());
 	}
 
+	public void handleBtRetour() {
+		mainApp.showAccueilview();;
+	}
+	
 	private void showUser(Utilisateur user) {
 		if (user != null) {
 			nomTitre.setVisible(true);
