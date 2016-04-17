@@ -89,6 +89,10 @@ public class Main extends Application implements Observer {
 	public void showPersonOverview() {
 		personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
 	}
+	
+	public void showDomaineOverview() {
+		personnViewController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
+	}
 
 	/**
 	 * Opens a dialog to edit details for the specified person. If the user clicks OK, the changes are saved into the provided person object and true is returned.

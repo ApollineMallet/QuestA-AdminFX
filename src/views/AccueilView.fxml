@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="477.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccueilController">
    <children>
-      <TitledPane fx:id="grpMyQuiz" animated="false" layoutX="22.0" layoutY="28.0" prefHeight="335.0" prefWidth="565.0" text="Mes questionnaires" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <TitledPane fx:id="grpMyQuiz" animated="false" layoutX="22.0" layoutY="28.0" prefHeight="335.0" prefWidth="565.0" text="Mes questionnaires" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="89.0" prefWidth="563.0">
                <children>
@@ -18,9 +18,9 @@
             </AnchorPane>
         </content>
       </TitledPane>
-      <AnchorPane layoutX="600.0" layoutY="20.0" prefHeight="200.0" prefWidth="403.0" AnchorPane.leftAnchor="600.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane layoutX="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btUsers" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="46.0" prefWidth="373.0" text="Utilisateurs" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btUsers" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="46.0" prefWidth="624.0" text="Utilisateurs" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -29,12 +29,40 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btDisconnect" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="46.0" prefWidth="373.0" text="Déconnexion" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btGroupes" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="46.0" prefWidth="373.0" text="Groupes      " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/user-group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btQuestions" layoutX="14.0" layoutY="114.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="46.0" prefWidth="373.0" text="Questions    " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/pointD.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btDomaines" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="46.0" prefWidth="373.0" text="Domaines     " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/exit.png" />
-                     </image></ImageView>
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btDisconnect" layoutX="14.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="46.0" prefWidth="373.0" text="Déconnexion" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/exit.png" />
+                     </image>
+                  </ImageView>
                </graphic>
             </Button>
          </children>

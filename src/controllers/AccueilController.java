@@ -48,6 +48,10 @@ public class AccueilController extends AbstractController {
 	public void handleBtUsers() {
 		mainApp.showPersonOverview();
 	}
+	
+	public void handleBtDomaine() {
+		mainApp.showDomaineOverview();
+	}
 
 	public void handleDisconnect() {
 		if (mainApp.getWebGate().disconnect()) {
