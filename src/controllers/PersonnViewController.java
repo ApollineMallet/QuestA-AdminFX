@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
@@ -26,6 +27,16 @@ public class PersonnViewController extends AbstractController {
 	@FXML
 	private TableColumn<Utilisateur, String> nomColumn;
 
+	@FXML
+	private Label nomTitre;
+	@FXML
+	private Label prenomTitre;
+	@FXML
+	private Label emailTitre;
+	
+	@FXML
+	private Text aucunUtiText;
+	
 	@FXML
 	private Label prenomLabel;
 
@@ -99,11 +110,16 @@ public class PersonnViewController extends AbstractController {
 
 	private void showUser(Utilisateur user) {
 		if (user != null) {
+			nomTitre.setVisible(true);
+			prenomTitre.setVisible(true);
+			emailTitre.setVisible(true);
 			prenomLabel.setText(user.getPrenom());
 			nomLabel.setText(user.getNom());
 			emailLabel.setText(user.getMail());
+			aucunUtiText.setVisible(false);
 
 		} else {
+			aucunUtiText.setVisible(true);
 			prenomLabel.setText("");
 			nomLabel.setText("");
 			emailLabel.setText("");
