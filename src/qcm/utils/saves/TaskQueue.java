@@ -11,6 +11,7 @@ import qcm.utils.WebGateList;
 public class TaskQueue extends Observable {
 	private DelayQueue<DelayedTask> tasks;
 	private DelayedService service;
+	@SuppressWarnings("unused")
 	private String name;
 	private WebGate webGate;
 	private int rowGroupSize;

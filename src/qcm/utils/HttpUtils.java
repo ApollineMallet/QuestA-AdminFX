@@ -68,6 +68,7 @@ public class HttpUtils {
 		return result;
 	}
 
+	@SuppressWarnings("deprecation")
 	public static String getHTML(String urlToRead) throws ClientProtocolException, IOException {
 		String result = "";
 		CloseableHttpClient httpClient = HttpClients.createDefault();
