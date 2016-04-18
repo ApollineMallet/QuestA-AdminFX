@@ -42,7 +42,11 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
+<<<<<<< HEAD
                         <Image url="@img/question.png" />
+=======
+                        <Image url="@img/piece-question.png" />
+>>>>>>> origin/master
                      </image>
                   </ImageView>
                </graphic>
@@ -51,7 +55,11 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
+<<<<<<< HEAD
                         <Image url="@img/domain.png" />
+=======
+                        <Image url="@img/domaine.png" />
+>>>>>>> origin/master
                      </image>
                   </ImageView>
                </graphic>
