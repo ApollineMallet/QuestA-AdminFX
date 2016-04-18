@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane minHeight="477.0" minWidth="1021.0" prefHeight="477.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccueilController">
    <children>
@@ -21,52 +22,32 @@
       </TitledPane>
       <AnchorPane layoutX="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btUsers" layoutX="275.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="66.0" prefWidth="340.0" text="Utilisateurs">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/user-group.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button fx:id="btUsers" layoutX="275.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="66.0" prefWidth="340.0" text="Utilisateurs" textAlignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
             <Button fx:id="btGroupes" layoutX="275.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Groupes">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/group.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
             <Button fx:id="btQuestions" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/question.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
             <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="690.0" text="Domaines     ">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/domain.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
             <Button fx:id="btDisconnect" layoutX="275.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/deco.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
-            <ImageView fitHeight="350.0" fitWidth="547.0" layoutX="-137.0" layoutY="-26.0" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-137.0" AnchorPane.rightAnchor="611.0" AnchorPane.topAnchor="68.0">
+            <ImageView fitHeight="350.0" fitWidth="547.0" layoutX="-137.0" layoutY="68.0" preserveRatio="true" AnchorPane.bottomAnchor="67.125" AnchorPane.leftAnchor="-137.0" AnchorPane.rightAnchor="611.0" AnchorPane.topAnchor="68.0">
                <image>
                   <Image url="@img/QUESTA%20logo.png" />
                </image>
@@ -74,18 +55,44 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <Button fx:id="btQuestions1" layoutX="625.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questionnaire">
-               <graphic>
-                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/quiz.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button fx:id="btQuestions1" layoutX="625.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questionnaires">
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Button>
             <ImageView fitHeight="150.0" fitWidth="442.0" layoutX="399.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/bienvenue.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/quiz.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/question.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="286.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/group.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/user-group.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="492.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/domain.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="492.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/deco.png" />
                </image>
             </ImageView>
          </children>
