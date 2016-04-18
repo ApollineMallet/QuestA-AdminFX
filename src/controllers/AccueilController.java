@@ -57,6 +57,7 @@ public class AccueilController extends AbstractController {
 		if (mainApp.getWebGate().disconnect()) {
 			mainApp.getRootLayout().setCenter(null);
 			mainApp.showConnexion();
+			
 		}
 	}
 }
