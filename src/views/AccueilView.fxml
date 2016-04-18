@@ -7,10 +7,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="477.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccueilController">
+<AnchorPane minHeight="477.0" minWidth="1021.0" prefHeight="477.0" prefWidth="1021.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AccueilController">
    <children>
       <TitledPane fx:id="grpMyQuiz" animated="false" layoutX="22.0" layoutY="28.0" prefHeight="335.0" prefWidth="565.0" text="Mes questionnaires" visible="false" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
         <content>
@@ -23,7 +21,7 @@
       </TitledPane>
       <AnchorPane layoutX="1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btUsers" layoutX="275.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="66.0" prefWidth="340.0" text="Utilisateurs" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="406.0" AnchorPane.topAnchor="93.0">
+            <Button fx:id="btUsers" layoutX="275.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="66.0" prefWidth="340.0" text="Utilisateurs">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,11 +30,7 @@
                   </ImageView>
                </graphic>
             </Button>
-<<<<<<< HEAD
-            <Button fx:id="btGroupes" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleBtGroup" prefHeight="46.0" prefWidth="373.0" text="Groupes      " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
-=======
-            <Button fx:id="btGroupes" layoutX="275.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Groupes" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="406.0">
->>>>>>> origin/master
+            <Button fx:id="btGroupes" layoutX="275.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Groupes">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,33 +39,25 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btQuestions" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions" AnchorPane.leftAnchor="625.0" AnchorPane.rightAnchor="56.0">
+            <Button fx:id="btQuestions" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-<<<<<<< HEAD
                         <Image url="@img/question.png" />
-=======
-                        <Image url="@img/piece-question.png" />
->>>>>>> origin/master
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="690.0" text="Domaines     " AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="56.0">
+            <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="690.0" text="Domaines     ">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-<<<<<<< HEAD
                         <Image url="@img/domain.png" />
-=======
-                        <Image url="@img/domaine.png" />
->>>>>>> origin/master
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btDisconnect" layoutX="275.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="56.0">
+            <Button fx:id="btDisconnect" layoutX="275.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,16 +78,16 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/piece-question.png" />
+                        <Image url="@img/quiz.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Text layoutX="495.0" layoutY="59.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue !" textAlignment="CENTER" wrappingWidth="250.1875">
-               <font>
-                  <Font name="Brush Script MT Italic" size="62.0" />
-               </font>
-            </Text>
+            <ImageView fitHeight="150.0" fitWidth="442.0" layoutX="399.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/bienvenue.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
