@@ -43,7 +43,7 @@
                     </rowConstraints>
                      <children>
                         <Label text="Code" textFill="WHITE" GridPane.rowIndex="1" />
-                        <TextField fx:id="codeField" prefHeight="25.0" prefWidth="192.0" GridPane.rowIndex="2">
+                        <TextField fx:id="codeField" prefHeight="25.0" prefWidth="160.0" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets right="2.5" />
                            </GridPane.margin>
@@ -55,7 +55,7 @@
                         </TextField>
                         <ButtonBar prefHeight="60.0" prefWidth="222.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#handleSave" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Enregistrer" textFill="WHITE" />
+                              <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Enregistrer" textFill="WHITE" />
                             <Button minWidth="28.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="16.0" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Supprimer" textFill="WHITE" />
                           </buttons>
                         </ButtonBar>
@@ -85,7 +85,7 @@
                                        <children>
                                           <TableView fx:id="userList" layoutX="34.0" layoutY="36.0" prefHeight="272.0" prefWidth="201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn fx:id="userColumn" prefWidth="267.0" text="Utilisateurs du groupe" />
+                                              <TableColumn fx:id="userColumn" prefWidth="267.0" text="Utilisateurs" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -97,7 +97,7 @@
                                        <children>
                                           <TableView fx:id="quizzList" layoutX="34.0" layoutY="36.0" prefHeight="272.0" prefWidth="267.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn fx:id="quizzColumn" prefWidth="266.0" text="Quizz associés au groupe" />
+                                              <TableColumn fx:id="quizzColumn" prefWidth="266.0" text="Quiz du groupe" />
                                             </columns>
                                              <columnResizePolicy>
                                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
