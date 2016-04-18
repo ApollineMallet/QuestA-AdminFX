@@ -28,6 +28,9 @@ public class AccueilController extends AbstractController {
 	private Button btDisconnect;
 
 	@FXML
+	private Button btDomaines;
+
+	@FXML
 	private void initialize() {
 		Callback<Questionnaire, ObservableValue<Boolean>> getProperty = new Callback<Questionnaire, ObservableValue<Boolean>>() {
 
@@ -37,7 +40,8 @@ public class AccueilController extends AbstractController {
 			}
 
 		};
-		Callback<ListView<Questionnaire>, ListCell<Questionnaire>> forListView = CheckBoxListCell.forListView(getProperty);
+		Callback<ListView<Questionnaire>, ListCell<Questionnaire>> forListView = CheckBoxListCell
+				.forListView(getProperty);
 		lvMyQuiz.setCellFactory(forListView);
 	}
 
@@ -48,8 +52,8 @@ public class AccueilController extends AbstractController {
 	public void handleBtUsers() {
 		mainApp.showPersonOverview();
 	}
-	
-	public void handleBtDomaine() {
+
+	public void handleBtDomaines() {
 		mainApp.showDomaineOverview();
 	}
 
@@ -57,7 +61,7 @@ public class AccueilController extends AbstractController {
 		if (mainApp.getWebGate().disconnect()) {
 			mainApp.getRootLayout().setCenter(null);
 			mainApp.showConnexion();
-			
+
 		}
 	}
 }

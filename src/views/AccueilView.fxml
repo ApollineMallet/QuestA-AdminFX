@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btDomaines" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="46.0" prefWidth="373.0" text="Domaines     " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btDomaines" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleBtDomaines" prefHeight="46.0" prefWidth="373.0" text="Domaines     " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
