@@ -98,32 +98,7 @@ public class GroupController extends AbstractController{
     
     @FXML
     void handleSave(ActionEvent event) {
-    	int selInxdex = groupList.getSelectionModel().getSelectedIndex();
-		if (selInxdex >= 0) {
-			//Update
-			Groupe selectedGroup = groupList.getSelectionModel().getSelectedItem();
-			selectedGroup.setLibelle(libelleField.getText());
-			selectedGroup.setCode(codeField.getText());
-			try {
-				mainApp.getWebGate().update(selectedGroup, selectedGroup.getId());
-				mainApp.getTaskQueue().getAll(Groupe.class);
-			} catch (Exception e) {
-				
-			}
-		} else {
-			//Insertion
-			Groupe group = new Groupe();
-			group.setLibelle(libelleField.getText());
-			group.setCode(codeField.getText());
-			try {
-				String res = mainApp.getWebGate().add(group);
-				Groupe g = (Groupe) mainApp.getWebGate().getObjectFromJson(res, Groupe.class);
-				mainApp.getWebGate().getList(Groupe.class).add(g);
-				showGroup(g);
-			} catch (Exception e) {
-		
-			}
-		}
+    
     }
     
     @FXML
@@ -137,19 +112,7 @@ public class GroupController extends AbstractController{
     	Alert alert = new Alert(AlertType.WARNING);
     	int selInxdex = groupList.getSelectionModel().getSelectedIndex();
 		Groupe selectedGroup = groupList.getSelectionModel().getSelectedItem();
-		if (selInxdex >= 0) {
-			boolean response = alert.showDialog("Suppression", "Supprimer un groupe ?", "Voulez-vous vraiment supprimer le groupe '" + selectedGroup.getLibelle() + "' ?");
-			if(response){
-				groupList.getItems().remove(selInxdex);
-				try {
-					mainApp.getTaskQueue().delete(selectedGroup, selectedGroup.getId());
-				} catch (Exception e) {
-					
-				}
-			}
-		} else {
-			
-		}
+		
     }
 
 }
