@@ -30,7 +30,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="183.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleNew" text="Nouveau" AnchorPane.bottomAnchor="339.0" AnchorPane.rightAnchor="7.0" />
+                  <Button layoutX="139.0" layoutY="84.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="25.0" prefWidth="70.0" text="Nouveau" AnchorPane.bottomAnchor="489.0" AnchorPane.rightAnchor="131.0" />
                   <ImageView fitHeight="68.0" fitWidth="321.0" layoutX="10.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/titregroupe.png" />
