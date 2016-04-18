@@ -83,6 +83,7 @@ public class GroupController extends AbstractController{
 	
 	}
     
+  
     public void showGroup(Groupe group){
     	if(group == null){
     		idField.setText("0");
