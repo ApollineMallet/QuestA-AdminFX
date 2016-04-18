@@ -8,6 +8,7 @@ import java.util.function.Function;
 
 import controllers.AccueilController;
 import controllers.EditController;
+import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
@@ -39,6 +40,7 @@ public class Main extends Application implements Observer {
 	private TaskQueue taskQueue;
 	private MainController mainController;
 	private Utilisateur activeUser;
+	private GroupController groupController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -88,6 +90,11 @@ public class Main extends Application implements Observer {
 
 	public void showPersonOverview() {
 		personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
+	}
+	
+	public void showGroupOverview(){
+		
+		groupController = ViewUtils.loadCenterPane("/views/GroupView.fxml", this, AnchorPane.class);
 	}
 	
 	public void showDomaineOverview() {
@@ -221,5 +228,13 @@ public class Main extends Application implements Observer {
 
 	public void setActiveUser(Utilisateur activeUser) {
 		this.activeUser = activeUser;
+	}
+
+	public GroupController getGroupController() {
+		return groupController;
+	}
+
+	public void setGroupController(GroupController groupController) {
+		this.groupController = groupController;
 	}
 }

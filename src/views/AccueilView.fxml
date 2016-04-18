@@ -29,11 +29,11 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btGroupes" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="46.0" prefWidth="373.0" text="Groupes      " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btGroupes" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleBtGroup" prefHeight="46.0" prefWidth="373.0" text="Groupes      " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/user-group.png" />
+                        <Image url="@img/group.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -42,7 +42,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/pointD.png" />
+                        <Image url="@img/question.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -51,7 +51,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/exit.png" />
+                        <Image url="@img/domain.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -60,7 +60,7 @@
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/exit.png" />
+                        <Image url="@img/deco.png" />
                      </image>
                   </ImageView>
                </graphic>

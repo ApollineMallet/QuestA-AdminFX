@@ -26,7 +26,10 @@ public class AccueilController extends AbstractController {
 
 	@FXML
 	private Button btDisconnect;
-
+	
+	@FXML
+	private Button btGroupes;
+	
 	@FXML
 	private void initialize() {
 		Callback<Questionnaire, ObservableValue<Boolean>> getProperty = new Callback<Questionnaire, ObservableValue<Boolean>>() {
@@ -47,6 +50,11 @@ public class AccueilController extends AbstractController {
 
 	public void handleBtUsers() {
 		mainApp.showPersonOverview();
+	}
+	
+	public void handleBtGroup(){
+		
+		mainApp.showGroupOverview();
 	}
 	
 	public void handleBtDomaine() {
