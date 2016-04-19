@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TitledPane?>
@@ -28,12 +29,18 @@
             <Button fx:id="btUsers" layoutX="275.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtUsers" prefHeight="66.0" prefWidth="340.0" text="Utilisateurs">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             
             <Button fx:id="btGroupes" layoutX="275.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleBtGroup" prefHeight="66.0" prefWidth="340.0" text="Groupes">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             
              <ImageView fitHeight="350.0" fitWidth="547.0" layoutX="-137.0" layoutY="68.0" preserveRatio="true" AnchorPane.bottomAnchor="67.125" AnchorPane.leftAnchor="-137.0" AnchorPane.rightAnchor="611.0" AnchorPane.topAnchor="68.0">
                <image>
@@ -41,15 +48,21 @@
                </image>
             </ImageView>
             
-            <Button fx:id="btQuiz" layoutX="625.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questionnaires">
+            <Button fx:id="btQuiz" layoutX="625.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleBtQuiz" prefHeight="66.0" prefWidth="340.0" text="Questionnaires">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             
             <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="690.0" text="Domaines">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             
             
             
@@ -78,7 +91,10 @@
             <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/question.png" />
@@ -87,7 +103,10 @@
             <Button fx:id="btdeconnexion" layoutX="275.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion">
                <font>
                   <Font size="20.0" />
-               </font></Button>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/deco.png" />

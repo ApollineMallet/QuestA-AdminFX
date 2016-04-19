@@ -63,6 +63,10 @@ public class AccueilController extends AbstractController {
 	public void handleBtDomaine() {
 		mainApp.showDomaineOverview();
 	}
+	
+	public void handleBtQuiz() {
+		mainApp.showQuizOverview();
+	}
 
 	public void handleDisconnect() {
 		if (mainApp.getWebGate().disconnect()) {

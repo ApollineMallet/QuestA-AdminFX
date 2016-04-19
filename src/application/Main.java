@@ -13,6 +13,7 @@ import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -43,6 +44,7 @@ public class Main extends Application implements Observer {
 	private MainController mainController;
 	private Utilisateur activeUser;
 	private GroupController groupController;
+	private QuizController quizController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -102,6 +104,10 @@ public class Main extends Application implements Observer {
 
 	public void showDomaineOverview() {
 		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
+	}
+	
+	public void showQuizOverview() {
+		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
 	}
 
 	/**
