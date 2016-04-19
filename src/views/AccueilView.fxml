@@ -63,7 +63,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="btDomaines" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleBtDomaines" prefHeight="46.0" prefWidth="373.0" text="Domaines     " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+            <Button fx:id="btDomaines" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="46.0" prefWidth="373.0" text="Domaines     " AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
             <Button fx:id="btDisconnect" layoutX="275.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion">
 <<<<<<< HEAD
                <font>
