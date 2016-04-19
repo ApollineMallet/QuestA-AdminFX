@@ -30,7 +30,6 @@ public class PersonnViewController extends AbstractController {
 
 	@FXML
 	private Button btRetour;
-	
 	@FXML
 	private Label nomTitre;
 	@FXML

@@ -28,6 +28,7 @@ public class WebGate {
 		restUrlMappings.put("Questionnaire", "quiz");
 		restUrlMappings.put("Question", "question");
 		restUrlMappings.put("Reponse", "reponse");
+		restUrlMappings.put("Groupe", "groupe");
 	}
 
 	private <T> String getControllerUrl(Class<T> clazz) {

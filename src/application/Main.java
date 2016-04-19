@@ -20,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
@@ -34,6 +35,7 @@ public class Main extends Application implements Observer {
 	private ObservableList<Utilisateur> usersList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
 	private AccueilController accueilController;
 	private WebGate webGate;
@@ -116,6 +118,8 @@ public class Main extends Application implements Observer {
 			}
 		});
 	}
+	
+
 
 	public void showConnexion() {
 		if (ViewUtils.showDialog("/views/LoginView.fxml", primaryStage, new Function<LoginController, String>() {
@@ -153,6 +157,7 @@ public class Main extends Application implements Observer {
 		usersList = webGate.getList(Utilisateur.class);
 		quizList = webGate.getList(Questionnaire.class);
 		reponsesList = webGate.getList(Reponse.class);
+		groupeList = webGate.getList(Groupe.class);
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class); for (Utilisateur u : users) { usersList.add(u); } } catch (IOException e) { // TODO Alert Bootstrap JavaFX
 		 * e.printStackTrace(); }
@@ -176,6 +181,7 @@ public class Main extends Application implements Observer {
 	public ObservableList<Utilisateur> getPersonData() {
 		return usersList;
 	}
+	
 
 	public void setPersonData(ObservableList<Utilisateur> personData) {
 		this.usersList = personData;
@@ -216,6 +222,7 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Utilisateur.class);
 		taskQueue.getAll(Questionnaire.class);
 		taskQueue.getAll(Reponse.class);
+		taskQueue.getAll(Groupe.class);
 	}
 
 	public BorderPane getRootLayout() {
@@ -236,5 +243,13 @@ public class Main extends Application implements Observer {
 
 	public void setGroupController(GroupController groupController) {
 		this.groupController = groupController;
+	}
+
+	public ObservableList<Groupe> getGroupeList() {
+		return groupeList;
+	}
+
+	public void setGroupeList(ObservableList<Groupe> groupeList) {
+		this.groupeList = groupeList;
 	}
 }
