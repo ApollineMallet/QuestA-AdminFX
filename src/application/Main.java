@@ -7,11 +7,13 @@ import java.util.Observer;
 import java.util.function.Function;
 
 import controllers.AccueilController;
+import controllers.DomaineController;
 import controllers.EditController;
 import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -37,12 +39,14 @@ public class Main extends Application implements Observer {
 	private ObservableList<Reponse> reponsesList;
 	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
+	private DomaineController domaineController;
 	private AccueilController accueilController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
 	private MainController mainController;
 	private Utilisateur activeUser;
 	private GroupController groupController;
+	private QuizController quizController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -82,7 +86,9 @@ public class Main extends Application implements Observer {
 	 * Shows the person overview inside the root layout.
 	 */
 	public void showAccueilview() {
-		// personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
+		// personnViewController =
+		// ViewUtils.loadCenterPane("/views/PersonnView.fxml", this,
+		// AnchorPane.class);
 		accueilController = ViewUtils.loadCenterPane("/views/AccueilView.fxml", this, AnchorPane.class);
 	}
 
@@ -93,20 +99,26 @@ public class Main extends Application implements Observer {
 	public void showPersonOverview() {
 		personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
 	}
-	
-	public void showGroupOverview(){
-		
+
+	public void showGroupOverview() {
 		groupController = ViewUtils.loadCenterPane("/views/GroupView.fxml", this, AnchorPane.class);
 	}
-	
+
 	public void showDomaineOverview() {
-		personnViewController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
+		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
+	}
+	
+	public void showQuizOverview() {
+		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
 	}
 
 	/**
-	 * Opens a dialog to edit details for the specified person. If the user clicks OK, the changes are saved into the provided person object and true is returned.
+	 * Opens a dialog to edit details for the specified person. If the user
+	 * clicks OK, the changes are saved into the provided person object and true
+	 * is returned.
 	 *
-	 * @param user the person object to be edited
+	 * @param user
+	 *            the person object to be edited
 	 * @return true if the user clicked OK, false otherwise.
 	 */
 	public boolean showPersonEditDialog(Utilisateur user) {
@@ -159,8 +171,10 @@ public class Main extends Application implements Observer {
 		reponsesList = webGate.getList(Reponse.class);
 		groupeList = webGate.getList(Groupe.class);
 		/*
-		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class); for (Utilisateur u : users) { usersList.add(u); } } catch (IOException e) { // TODO Alert Bootstrap JavaFX
-		 * e.printStackTrace(); }
+		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
+		 * for (Utilisateur u : users) { usersList.add(u); } } catch
+		 * (IOException e) { // TODO Alert Bootstrap JavaFX e.printStackTrace();
+		 * }
 		 */
 		// loadLists();
 	}

@@ -39,12 +39,12 @@ public class EditController extends ModalController {
 		txtEmail.setText(user.getMail());
 	}
 	
-	public void setGroup(Groupe group) {
-		this.user = user;
-		txtCode.setText(.getNom());
-		txtPrenom.setText(user.getPrenom());
-		txtEmail.setText(user.getMail());
-	}
+//	public void setGroup(Groupe group) {
+//		this.user = user;
+//		txtCode.setText(.getNom());
+//		txtPrenom.setText(user.getPrenom());
+//		txtEmail.setText(user.getMail());
+//	}
 
 
 	/**
