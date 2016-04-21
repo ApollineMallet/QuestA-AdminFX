@@ -15,6 +15,7 @@ public class GenericCellFactory<T>
 	@FXML
 	public Image back = new Image("/views/img/back.png");
 	public ImageView img = new ImageView(back);
+
 	
 	@Override
 	public ListCell<T> call(ListView<T> param) {
