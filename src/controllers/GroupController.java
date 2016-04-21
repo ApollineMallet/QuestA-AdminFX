@@ -2,16 +2,16 @@ package controllers;
 
 import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Utilisateur;
@@ -27,6 +27,7 @@ public class GroupController extends AbstractController{
     @FXML
     private TableColumn<Groupe, String> libelleColumn;
 
+    
     @FXML
     private TextField idField;
     
@@ -48,12 +49,7 @@ public class GroupController extends AbstractController{
     @FXML
     private TableColumn<Questionnaire, String> quizzColumn;
 
-    @Override
-    public void setMainApp(Main mainApp) {
-    	super.setMainApp(mainApp);
-    	ObservableList<Groupe> groupObs = mainApp.getWebGate().getList(Groupe.class);
-    	groupList.setItems(groupObs);
-    }
+
 
     @FXML
 	private void initialize() {
@@ -79,40 +75,64 @@ public class GroupController extends AbstractController{
 		});
 		
 		showGroup(null);
+		
 		groupList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showGroup(newValue));	
 	
 	}
     
+    public TableView<Groupe> getGroupeTable() {
+		return groupList;
+	}
+    
+    public void setMainApp(Main mainApp) {
+		super.setMainApp(mainApp);
+		groupList.setItems(mainApp.getGroupeList());
+		
+	}
   
     public void showGroup(Groupe group){
     	if(group == null){
     		idField.setText("0");
-    		libelleField.setText("");
+    		libelleField.setText("coucou");
     		codeField.setText("");
     	}else{
     		idField.setText(String.valueOf(group.getId()));
     		codeField.setText(group.getCode());
     		libelleField.setText(group.getLibelle());
-
+    		idField.setVisible(true);
+			codeField.setVisible(true);
+			libelleField.setVisible(true);
+		
     	}
     }
+    
     
     @FXML
     void handleSave(ActionEvent event) {
     
     }
     
-    @FXML
-    void handleNew(ActionEvent event) {
-    	showGroup(null);
-    	groupList.getSelectionModel().clearSelection();
+   @FXML
+   void handleNew(ActionEvent event) {
+//   	mainApp.getTaskQueue().getAll(Groupe.class);
+//		Groupe group = new Groupe();
+//		boolean okClicked = mainApp.showPersonEditDialog(group);
+//		if (okClicked) {
+//			mainApp.getPersonData().add(group);
+//			try {
+//				mainApp.getWebGate().add(group);
+//			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
     }
+    
+  
     
     @FXML
     void handleDelete(ActionEvent event) {
-    	Alert alert = new Alert(AlertType.WARNING);
-    	int selInxdex = groupList.getSelectionModel().getSelectedIndex();
-		Groupe selectedGroup = groupList.getSelectionModel().getSelectedItem();
+
 		
     }
 

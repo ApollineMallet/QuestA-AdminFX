@@ -13,6 +13,7 @@ import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.models.pojo.Domaine;
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
@@ -37,6 +39,7 @@ public class Main extends Application implements Observer {
 	private ObservableList<Domaine> domainesList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
 	private DomaineController domaineController;
 	private AccueilController accueilController;
@@ -45,6 +48,7 @@ public class Main extends Application implements Observer {
 	private MainController mainController;
 	private Utilisateur activeUser;
 	private GroupController groupController;
+	private QuizController quizController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -106,6 +110,10 @@ public class Main extends Application implements Observer {
 		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
 	}
 
+	public void showQuizOverview() {
+		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
+	}
+
 	/**
 	 * Opens a dialog to edit details for the specified person. If the user
 	 * clicks OK, the changes are saved into the provided person object and true
@@ -162,6 +170,8 @@ public class Main extends Application implements Observer {
 		quizList = webGate.getList(Questionnaire.class);
 		reponsesList = webGate.getList(Reponse.class);
 		domainesList = webGate.getList(Domaine.class);
+		groupeList = webGate.getList(Groupe.class);
+
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
 		 * for (Utilisateur u : users) { usersList.add(u); } } catch
@@ -236,6 +246,7 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Questionnaire.class);
 		taskQueue.getAll(Reponse.class);
 		taskQueue.getAll(Domaine.class);
+		taskQueue.getAll(Groupe.class);
 	}
 
 	public BorderPane getRootLayout() {
@@ -256,5 +267,13 @@ public class Main extends Application implements Observer {
 
 	public void setGroupController(GroupController groupController) {
 		this.groupController = groupController;
+	}
+
+	public ObservableList<Groupe> getGroupeList() {
+		return groupeList;
+	}
+
+	public void setGroupeList(ObservableList<Groupe> groupeList) {
+		this.groupeList = groupeList;
 	}
 }
