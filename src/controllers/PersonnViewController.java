@@ -6,8 +6,8 @@ import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -30,17 +30,17 @@ public class PersonnViewController extends AbstractController {
 
 	@FXML
 	private Button btRetour;
-	
+
 	@FXML
 	private Label nomTitre;
 	@FXML
 	private Label prenomTitre;
 	@FXML
 	private Label emailTitre;
-	
+
 	@FXML
 	private Text aucunUtiText;
-	
+
 	@FXML
 	private Label prenomLabel;
 
@@ -61,7 +61,8 @@ public class PersonnViewController extends AbstractController {
 	}
 
 	/**
-	 * Initializes the controller class. This method is automatically called after the fxml file has been loaded.
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded.
 	 */
 	@FXML
 	private void initialize() {
@@ -75,7 +76,8 @@ public class PersonnViewController extends AbstractController {
 			return new SimpleObjectProperty<>(user.getNom());
 		});
 		showUser(null);
-		personnTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showUser(newValue));
+		personnTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showUser(newValue));
 		lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
 		cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
 	}
@@ -113,9 +115,9 @@ public class PersonnViewController extends AbstractController {
 	}
 
 	public void handleBtRetour() {
-		mainApp.showAccueilview();;
+		mainApp.showAccueilview();
 	}
-	
+
 	private void showUser(Utilisateur user) {
 		if (user != null) {
 			nomTitre.setVisible(true);

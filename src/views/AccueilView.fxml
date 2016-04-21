@@ -32,9 +32,6 @@
                <image>
                   <Image url="@img/QUESTA%20logo.png" />
                </image>
-               <viewport>
-                  <Rectangle2D />
-               </viewport>
             </ImageView>
             
             <Button fx:id="btQuiz" layoutX="625.0" layoutY="93.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questionnaires">
@@ -47,7 +44,7 @@
                </graphic>
             </Button>
             
-            <Button fx:id="btDomaines" layoutX="625.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleDomaines" prefHeight="66.0" prefWidth="340.0" text="Domaines">
+            <Button fx:id="btDomaines" layoutX="625.0" layoutY="159.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="340.0" text="Domaines">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
