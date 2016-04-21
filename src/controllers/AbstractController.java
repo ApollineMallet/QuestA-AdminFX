@@ -1,9 +1,12 @@
 package controllers;
 
+
+
 import application.Main;
 
 public abstract class AbstractController {
 	protected Main mainApp;
+
 
 	public AbstractController() {
 
@@ -15,6 +18,7 @@ public abstract class AbstractController {
 
 	public void setMainApp(Main mainApp) {
 		this.mainApp = mainApp;
+
 	}
 
 }

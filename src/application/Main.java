@@ -9,9 +9,11 @@ import java.util.function.Function;
 import controllers.AccueilController;
 import controllers.DomaineController;
 import controllers.EditController;
+import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -20,6 +22,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import qcm.models.pojo.Domaine;
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
@@ -32,15 +36,19 @@ public class Main extends Application implements Observer {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private ObservableList<Utilisateur> usersList;
+	private ObservableList<Domaine> domainesList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
-	private AccueilController accueilController;
 	private DomaineController domaineController;
+	private AccueilController accueilController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
 	private MainController mainController;
 	private Utilisateur activeUser;
+	private GroupController groupController;
+	private QuizController quizController;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -80,7 +88,9 @@ public class Main extends Application implements Observer {
 	 * Shows the person overview inside the root layout.
 	 */
 	public void showAccueilview() {
-		// personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
+		// personnViewController =
+		// ViewUtils.loadCenterPane("/views/PersonnView.fxml", this,
+		// AnchorPane.class);
 		accueilController = ViewUtils.loadCenterPane("/views/AccueilView.fxml", this, AnchorPane.class);
 	}
 
@@ -91,15 +101,26 @@ public class Main extends Application implements Observer {
 	public void showPersonOverview() {
 		personnViewController = ViewUtils.loadCenterPane("/views/PersonnView.fxml", this, AnchorPane.class);
 	}
-	
+
+	public void showGroupOverview() {
+		groupController = ViewUtils.loadCenterPane("/views/GroupView.fxml", this, AnchorPane.class);
+	}
+
 	public void showDomaineOverview() {
 		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
 	}
 
+	public void showQuizOverview() {
+		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
+	}
+
 	/**
-	 * Opens a dialog to edit details for the specified person. If the user clicks OK, the changes are saved into the provided person object and true is returned.
+	 * Opens a dialog to edit details for the specified person. If the user
+	 * clicks OK, the changes are saved into the provided person object and true
+	 * is returned.
 	 *
-	 * @param user the person object to be edited
+	 * @param user
+	 *            the person object to be edited
 	 * @return true if the user clicked OK, false otherwise.
 	 */
 	public boolean showPersonEditDialog(Utilisateur user) {
@@ -148,9 +169,14 @@ public class Main extends Application implements Observer {
 		usersList = webGate.getList(Utilisateur.class);
 		quizList = webGate.getList(Questionnaire.class);
 		reponsesList = webGate.getList(Reponse.class);
+		domainesList = webGate.getList(Domaine.class);
+		groupeList = webGate.getList(Groupe.class);
+
 		/*
-		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class); for (Utilisateur u : users) { usersList.add(u); } } catch (IOException e) { // TODO Alert Bootstrap JavaFX
-		 * e.printStackTrace(); }
+		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
+		 * for (Utilisateur u : users) { usersList.add(u); } } catch
+		 * (IOException e) { // TODO Alert Bootstrap JavaFX e.printStackTrace();
+		 * }
 		 */
 		// loadLists();
 	}
@@ -174,6 +200,14 @@ public class Main extends Application implements Observer {
 
 	public void setPersonData(ObservableList<Utilisateur> personData) {
 		this.usersList = personData;
+	}
+
+	public ObservableList<Domaine> getDomaineData() {
+		return domainesList;
+	}
+
+	public void setDomaineData(ObservableList<Domaine> domaineData) {
+		this.domainesList = domaineData;
 	}
 
 	public WebGate getWebGate() {
@@ -211,6 +245,8 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Utilisateur.class);
 		taskQueue.getAll(Questionnaire.class);
 		taskQueue.getAll(Reponse.class);
+		taskQueue.getAll(Domaine.class);
+		taskQueue.getAll(Groupe.class);
 	}
 
 	public BorderPane getRootLayout() {
@@ -223,5 +259,21 @@ public class Main extends Application implements Observer {
 
 	public void setActiveUser(Utilisateur activeUser) {
 		this.activeUser = activeUser;
+	}
+
+	public GroupController getGroupController() {
+		return groupController;
+	}
+
+	public void setGroupController(GroupController groupController) {
+		this.groupController = groupController;
+	}
+
+	public ObservableList<Groupe> getGroupeList() {
+		return groupeList;
+	}
+
+	public void setGroupeList(ObservableList<Groupe> groupeList) {
+		this.groupeList = groupeList;
 	}
 }

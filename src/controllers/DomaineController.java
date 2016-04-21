@@ -1,29 +1,32 @@
 package controllers;
 
-import javafx.beans.property.SimpleObjectProperty;
+import application.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import qcm.models.pojo.Domaine;
-import qcm.models.pojo.Utilisateur;
+import qcm.utils.GenericCellFactory;
 
 public class DomaineController extends AbstractController {
 
 	@FXML
-	private TableView<Domaine> domaineTable;
+	private ListView<Domaine> domaineList;
+	
 	@FXML
-	private TableColumn<Domaine, String> groupeColumn;
-	
-	public DomaineController() {
-		// TODO Auto-generated constructor stub
-	}
-	
+	private Button btRetour;
+
 	@FXML
 	private void initialize() {
-		groupeColumn.setCellValueFactory((CellDataFeatures<Domaine, String> feature) -> {
-			Domaine domaine = feature.getValue();
-			return new SimpleObjectProperty<>(domaine.getLibelle());
-		});
+		domaineList.setCellFactory(new GenericCellFactory<Domaine>());
 	}
+
+	public void handleBtRetour() {
+		mainApp.showAccueilview();
+	}
+
+	public void setMainApp(Main mainApp) {
+		super.setMainApp(mainApp);
+		domaineList.setItems(mainApp.getDomaineData());
+	}
+
 }

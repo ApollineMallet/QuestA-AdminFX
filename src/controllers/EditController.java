@@ -11,7 +11,13 @@ public class EditController extends ModalController {
 
 	@FXML
 	private TextField txtNom;
-
+	
+	@FXML
+	private TextField txtCode;
+	
+	@FXML 
+	private TextField txtLibelle;
+	
 	@FXML
 	private TextField txtPrenom;
 
@@ -32,6 +38,14 @@ public class EditController extends ModalController {
 		txtPrenom.setText(user.getPrenom());
 		txtEmail.setText(user.getMail());
 	}
+	
+//	public void setGroup(Groupe group) {
+//		this.user = user;
+//		txtCode.setText(.getNom());
+//		txtPrenom.setText(user.getPrenom());
+//		txtEmail.setText(user.getMail());
+//	}
+
 
 	/**
 	 * Called when the user clicks ok.

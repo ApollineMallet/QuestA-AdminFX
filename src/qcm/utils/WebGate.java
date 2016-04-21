@@ -28,6 +28,8 @@ public class WebGate {
 		restUrlMappings.put("Questionnaire", "quiz");
 		restUrlMappings.put("Question", "question");
 		restUrlMappings.put("Reponse", "reponse");
+		restUrlMappings.put("Domaine", "domaine");
+		restUrlMappings.put("Groupe", "groupe");
 	}
 
 	private <T> String getControllerUrl(Class<T> clazz) {
@@ -98,7 +100,8 @@ public class WebGate {
 		return result;
 	}
 
-	public <T, R> List<R> getAllMember(Class<T> clazz, int id, String member, Class<R> returnClazz) throws ClientProtocolException, IOException {
+	public <T, R> List<R> getAllMember(Class<T> clazz, int id, String member, Class<R> returnClazz)
+			throws ClientProtocolException, IOException {
 		List<R> result = new ArrayList<R>();
 		String jsonUsers = HttpUtils.getHTML(baseUrl + getControllerUrl(clazz) + "/" + id + "/all/" + member + "/2");
 		Gson gson = MyGsonBuilder.create();
@@ -117,11 +120,13 @@ public class WebGate {
 		return HttpUtils.deleteHTML(baseUrl + getControllerUrl(object.getClass()) + "/" + String.valueOf(id));
 	}
 
-	public <T> String add(T object) throws ClientProtocolException, IllegalArgumentException, IllegalAccessException, IOException {
+	public <T> String add(T object)
+			throws ClientProtocolException, IllegalArgumentException, IllegalAccessException, IOException {
 		return HttpUtils.putHTML(baseUrl + getControllerUrl(object.getClass()) + "/add", beanToMap(object));
 	}
 
-	public <T> String update(T object, Object id) throws ClientProtocolException, IllegalArgumentException, IllegalAccessException, IOException {
+	public <T> String update(T object, Object id)
+			throws ClientProtocolException, IllegalArgumentException, IllegalAccessException, IOException {
 		return HttpUtils.postHTML(baseUrl + getControllerUrl(object.getClass()) + "/update/" + id, beanToMap(object));
 	}
 
