@@ -7,6 +7,7 @@ import java.util.Observer;
 import java.util.function.Function;
 
 import controllers.AccueilController;
+import controllers.DomaineController;
 import controllers.EditController;
 import controllers.LoginController;
 import controllers.MainController;
@@ -35,6 +36,7 @@ public class Main extends Application implements Observer {
 	private ObservableList<Reponse> reponsesList;
 	private PersonnViewController personnViewController;
 	private AccueilController accueilController;
+	private DomaineController domaineController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
 	private MainController mainController;
@@ -91,7 +93,7 @@ public class Main extends Application implements Observer {
 	}
 	
 	public void showDomaineOverview() {
-		personnViewController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
+		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
 	}
 
 	/**

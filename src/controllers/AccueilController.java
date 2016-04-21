@@ -25,6 +25,9 @@ public class AccueilController extends AbstractController {
 	private Button btUsers;
 
 	@FXML
+	private Button btDomaines;
+	
+	@FXML
 	private Button btDisconnect;
 
 	@FXML

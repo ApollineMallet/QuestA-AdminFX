@@ -8,12 +8,16 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Utilisateur;
 
-public class DomaineController {
+public class DomaineController extends AbstractController {
 
 	@FXML
 	private TableView<Domaine> domaineTable;
 	@FXML
 	private TableColumn<Domaine, String> groupeColumn;
+	
+	public DomaineController() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	@FXML
 	private void initialize() {
