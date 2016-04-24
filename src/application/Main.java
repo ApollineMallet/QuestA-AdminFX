@@ -134,7 +134,17 @@ public class Main extends Application implements Observer {
 			}
 		});
 	}
-
+	
+	public boolean showDomaineEditDialog(Domaine domaine) {
+		return ViewUtils.showDialog("/views/EditDomaine.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setDomaine(domaine);
+				return "Edition domaine";
+			}
+		});
+	}
+	
 	public void showConnexion() {
 		if (ViewUtils.showDialog("/views/LoginView.fxml", primaryStage, new Function<LoginController, String>() {
 

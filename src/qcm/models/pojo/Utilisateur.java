@@ -80,6 +80,7 @@ public class Utilisateur {
 	public Rang getRang(){
 		return this.rang;
 	}
+	
 	/**
 	 * return the value of questionnaires
 	 * @return questionnaires

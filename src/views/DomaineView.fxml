@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="477.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DomaineController">
+<AnchorPane prefHeight="477.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DomaineController">
    <children>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
       <ListView fx:id="domaineList" layoutX="14.0" layoutY="122.0" prefHeight="316.0" prefWidth="567.0" />
@@ -34,12 +34,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="251.0" fitWidth="420.0" layoutX="475.0" layoutY="-21.0" preserveRatio="true" AnchorPane.rightAnchor="-97.60000610351562">
+      <ImageView fitHeight="251.0" fitWidth="420.0" layoutX="586.0" layoutY="-3.0" preserveRatio="true" AnchorPane.bottomAnchor="229.0" AnchorPane.leftAnchor="586.0" AnchorPane.rightAnchor="-44.600006103515625" AnchorPane.topAnchor="-3.0">
          <image>
             <Image url="@img/QUESTA%20logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btRetour1" alignment="BOTTOM_CENTER" layoutX="624.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="101.0" prefWidth="150.0" text="Ajouter">
+      <Button alignment="BOTTOM_CENTER" layoutX="624.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleAddDomaine" prefHeight="101.0" prefWidth="150.0" text="Ajouter">
          <font>
             <Font size="20.0" />
          </font>
@@ -47,10 +47,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" focusTraversable="true" layoutX="674.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" focusTraversable="true" layoutX="674.0" layoutY="232.0" onMouseClicked="#handleAddDomaine" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/add.png" />
          </image>
       </ImageView>
+      <Button alignment="BOTTOM_CENTER" layoutX="787.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleDeleteDomaine" prefHeight="101.0" prefWidth="150.0" text="Supprimer">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="BOTTOM_CENTER" layoutX="787.0" layoutY="337.0" mnemonicParsing="false" onAction="#handleEditDomaine" prefHeight="101.0" prefWidth="150.0" text="Modifier">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

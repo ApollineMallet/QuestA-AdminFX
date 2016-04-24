@@ -37,19 +37,21 @@ public class PersonnViewController extends AbstractController {
 	private Label prenomTitre;
 	@FXML
 	private Label emailTitre;
-
+	@FXML
+	private Label rangTitre;
+	
 	@FXML
 	private Text aucunUtiText;
-
+	
 	@FXML
 	private Label prenomLabel;
-
 	@FXML
 	private Label nomLabel;
-
 	@FXML
 	private Label emailLabel;
-
+	@FXML
+	private Label rangLabel;
+	
 	@FXML
 	private ListView<Questionnaire> lvQuizzes;
 
@@ -78,8 +80,8 @@ public class PersonnViewController extends AbstractController {
 		showUser(null);
 		personnTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showUser(newValue));
-		lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
-		cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
+		//lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
+		//cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
 	}
 
 	public TableView<Utilisateur> getPersonnTable() {
@@ -109,8 +111,8 @@ public class PersonnViewController extends AbstractController {
 	public void setMainApp(Main mainApp) {
 		super.setMainApp(mainApp);
 		personnTable.setItems(mainApp.getPersonData());
-		lvQuizzes.setItems(mainApp.getQuizData());
-		cmbReponses.setItems(mainApp.getReponsesList());
+		//lvQuizzes.setItems(mainApp.getQuizData());
+		//cmbReponses.setItems(mainApp.getReponsesList());
 		// lblCount.textProperty().bind(mainApp.getTaskQueue().getService().progressProperty().asString());
 	}
 
@@ -123,9 +125,11 @@ public class PersonnViewController extends AbstractController {
 			nomTitre.setVisible(true);
 			prenomTitre.setVisible(true);
 			emailTitre.setVisible(true);
+			rangTitre.setVisible(true);
 			prenomLabel.setText(user.getPrenom());
 			nomLabel.setText(user.getNom());
 			emailLabel.setText(user.getMail());
+			rangLabel.setText(user.getRang().toString());
 			aucunUtiText.setVisible(false);
 
 		} else {
@@ -133,6 +137,7 @@ public class PersonnViewController extends AbstractController {
 			prenomLabel.setText("");
 			nomLabel.setText("");
 			emailLabel.setText("");
+			rangLabel.setText("");
 		}
 	}
 
