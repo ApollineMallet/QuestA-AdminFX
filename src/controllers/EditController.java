@@ -5,42 +5,52 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+<<<<<<< HEAD
 import qcm.models.pojo.Groupe;
+=======
+import qcm.models.pojo.Domaine;
+>>>>>>> origin/master
 import qcm.models.pojo.Utilisateur;
 
 public class EditController extends ModalController {
 
+	private Utilisateur user;
 	@FXML
-	private TextField txtNom;
-	
+	private TextField txtNomUser;
 	@FXML
 	private TextField txtCode;
-	
-	@FXML 
+	@FXML
 	private TextField txtLibelle;
-	
 	@FXML
-	private TextField txtPrenom;
-
+	private TextField txtPrenomUser;
 	@FXML
-	private TextField txtEmail;
-
+	private TextField txtEmailUser;
 	@FXML
-	private Button btOkay;
-
+	private Button btOkayUser;
 	@FXML
-	private Button btCancel;
+	private Button btCancelUser;
 
+<<<<<<< HEAD
 	private Utilisateur user;
 	
 	private Groupe group;
+=======
+	private Domaine domaine;
+	@FXML
+	private TextField txtLibelleDomaine;
+	@FXML
+	private Button btValiderDomaine;
+	@FXML
+	private Button btCancelDomaine;
+>>>>>>> origin/master
 
 	public void setUser(Utilisateur user) {
 		this.user = user;
-		txtNom.setText(user.getNom());
-		txtPrenom.setText(user.getPrenom());
-		txtEmail.setText(user.getMail());
+		txtNomUser.setText(user.getNom());
+		txtPrenomUser.setText(user.getPrenom());
+		txtEmailUser.setText(user.getMail());
 	}
+<<<<<<< HEAD
 	
 	public void setGroup(Groupe group) {
 		this.group = group;
@@ -48,17 +58,30 @@ public class EditController extends ModalController {
 		txtLibelle.setText(group.getLibelle());
 		
 	}
+=======
+>>>>>>> origin/master
 
+	public void setDomaine(Domaine domaine) {
+		this.domaine = domaine;
+		txtLibelleDomaine.setText(domaine.getLibelle());
+	}
+
+	// public void setGroup(Groupe group) {
+	// this.user = user;
+	// txtCode.setText(.getNom());
+	// txtPrenom.setText(user.getPrenom());
+	// txtEmail.setText(user.getMail());
+	// }
 
 	/**
 	 * Called when the user clicks ok.
 	 */
 	@FXML
-	private void handleOk() {
-		if (isInputValid()) {
-			user.setNom(txtNom.getText());
-			user.setPrenom(txtPrenom.getText());
-			user.setMail(txtEmail.getText());
+	private void handleUserOk() {
+		if (isInputValidUser()) {
+			user.setNom(txtNomUser.getText());
+			user.setPrenom(txtPrenomUser.getText());
+			user.setMail(txtEmailUser.getText());
 			okClicked = true;
 			dialogStage.close();
 		}
@@ -74,11 +97,15 @@ public class EditController extends ModalController {
 	}
 
 	/**
-	 * Called when the user clicks cancel.
+	 * Called when the user clicks ok.
 	 */
 	@FXML
-	private void handleCancel() {
-		dialogStage.close();
+	private void handleDomaineOk() {
+		if (isInputValidDomaine()) {
+			domaine.setLibelle(txtLibelleDomaine.getText());
+			okClicked = true;
+			dialogStage.close();
+		}
 	}
 
 	/**
@@ -86,16 +113,16 @@ public class EditController extends ModalController {
 	 *
 	 * @return true if the input is valid
 	 */
-	private boolean isInputValid() {
+	private boolean isInputValidUser() {
 		String errorMessage = "";
 
-		if (txtNom.getText() == null || txtNom.getText().length() == 0) {
+		if (txtNomUser.getText() == null || txtNomUser.getText().length() == 0) {
 			errorMessage += "No valid first name!\n";
 		}
-		if (txtPrenom.getText() == null || txtPrenom.getText().length() == 0) {
+		if (txtPrenomUser.getText() == null || txtPrenomUser.getText().length() == 0) {
 			errorMessage += "No valid last name!\n";
 		}
-		if (txtEmail.getText() == null || txtEmail.getText().length() == 0) {
+		if (txtEmailUser.getText() == null || txtEmailUser.getText().length() == 0) {
 			errorMessage += "No valid email!\n";
 		}
 
@@ -141,4 +168,37 @@ public class EditController extends ModalController {
 		}
 	}
 
+	/**
+	 * Validates the user input in the text fields.
+	 *
+	 * @return true if the input is valid
+	 */
+	private boolean isInputValidDomaine() {
+		String errorMessage = "";
+
+		if (txtLibelleDomaine.getText() == null || txtLibelleDomaine.getText().length() == 0) {
+			errorMessage = "Libelle non valide !\n";
+		}
+
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
+			alert.setContentText(errorMessage);
+			alert.showAndWait();
+			return false;
+		}
+	}
+
+	/**
+	 * Called when the user clicks cancel.
+	 */
+	@FXML
+	private void handleCancel() {
+		dialogStage.close();
+	}
 }

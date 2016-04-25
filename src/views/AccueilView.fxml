@@ -68,25 +68,37 @@
             
             
             
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="177.0" onMouseClicked="#handleBtGroup" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/group.png" />
              	 </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="101.0" onMouseClicked="#handleBtUsers" pickOnBounds="true" preserveRatio="true">
                 <image>
                    <Image url="@img/user-group.png" />
                 </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
              </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="253.0" onMouseClicked="#handleBtDomaine" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/domain.png" />
              	 </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="101.0" onMouseClicked="#handleBtQuiz" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/quiz.png" />
              	 </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
                <font>
@@ -95,10 +107,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="177.0" onMouseClicked="#handleDisconnect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/question.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Button fx:id="btdeconnexion" layoutX="275.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="690.0" text="Déconnexion">
                <font>
@@ -107,10 +122,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="379.0" onMouseClicked="#handleDisconnect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/deco.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ImageView fitHeight="287.0" fitWidth="447.0" layoutX="397.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
                <image>

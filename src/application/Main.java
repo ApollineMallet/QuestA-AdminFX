@@ -17,11 +17,14 @@ import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
@@ -35,6 +38,7 @@ public class Main extends Application implements Observer {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 	private ObservableList<Utilisateur> usersList;
+	private ObservableList<Domaine> domainesList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
 	private ObservableList<Groupe> groupeList;
@@ -107,7 +111,7 @@ public class Main extends Application implements Observer {
 	public void showDomaineOverview() {
 		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
 	}
-	
+
 	public void showQuizOverview() {
 		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
 	}
@@ -131,8 +135,16 @@ public class Main extends Application implements Observer {
 		});
 	}
 	
-
-
+	public boolean showDomaineEditDialog(Domaine domaine) {
+		return ViewUtils.showDialog("/views/EditDomaine.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setDomaine(domaine);
+				return "Edition domaine";
+			}
+		});
+	}
+	
 	public void showConnexion() {
 		if (ViewUtils.showDialog("/views/LoginView.fxml", primaryStage, new Function<LoginController, String>() {
 
@@ -169,7 +181,9 @@ public class Main extends Application implements Observer {
 		usersList = webGate.getList(Utilisateur.class);
 		quizList = webGate.getList(Questionnaire.class);
 		reponsesList = webGate.getList(Reponse.class);
+		domainesList = webGate.getList(Domaine.class);
 		groupeList = webGate.getList(Groupe.class);
+
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
 		 * for (Utilisateur u : users) { usersList.add(u); } } catch
@@ -195,10 +209,17 @@ public class Main extends Application implements Observer {
 	public ObservableList<Utilisateur> getPersonData() {
 		return usersList;
 	}
-	
 
 	public void setPersonData(ObservableList<Utilisateur> personData) {
 		this.usersList = personData;
+	}
+
+	public ObservableList<Domaine> getDomaineData() {
+		return domainesList;
+	}
+
+	public void setDomaineData(ObservableList<Domaine> domaineData) {
+		this.domainesList = domaineData;
 	}
 
 	public WebGate getWebGate() {
@@ -236,6 +257,7 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Utilisateur.class);
 		taskQueue.getAll(Questionnaire.class);
 		taskQueue.getAll(Reponse.class);
+		taskQueue.getAll(Domaine.class);
 		taskQueue.getAll(Groupe.class);
 	}
 

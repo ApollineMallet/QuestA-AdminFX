@@ -6,8 +6,8 @@ import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
-import qcm.utils.GenericCellFactory;
 
 public class PersonnViewController extends AbstractController {
 	@FXML
@@ -30,24 +29,27 @@ public class PersonnViewController extends AbstractController {
 
 	@FXML
 	private Button btRetour;
+
 	@FXML
 	private Label nomTitre;
 	@FXML
 	private Label prenomTitre;
 	@FXML
 	private Label emailTitre;
-	
+	@FXML
+	private Label rangTitre;
+
 	@FXML
 	private Text aucunUtiText;
-	
+
 	@FXML
 	private Label prenomLabel;
-
 	@FXML
 	private Label nomLabel;
-
 	@FXML
 	private Label emailLabel;
+	@FXML
+	private Label rangLabel;
 
 	@FXML
 	private ListView<Questionnaire> lvQuizzes;
@@ -60,7 +62,8 @@ public class PersonnViewController extends AbstractController {
 	}
 
 	/**
-	 * Initializes the controller class. This method is automatically called after the fxml file has been loaded.
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded.
 	 */
 	@FXML
 	private void initialize() {
@@ -74,9 +77,10 @@ public class PersonnViewController extends AbstractController {
 			return new SimpleObjectProperty<>(user.getNom());
 		});
 		showUser(null);
-		personnTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showUser(newValue));
-		lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
-		cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
+		personnTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showUser(newValue));
+		// lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
+		// cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
 	}
 
 	public TableView<Utilisateur> getPersonnTable() {
@@ -106,23 +110,25 @@ public class PersonnViewController extends AbstractController {
 	public void setMainApp(Main mainApp) {
 		super.setMainApp(mainApp);
 		personnTable.setItems(mainApp.getPersonData());
-		lvQuizzes.setItems(mainApp.getQuizData());
-		cmbReponses.setItems(mainApp.getReponsesList());
+		// lvQuizzes.setItems(mainApp.getQuizData());
+		// cmbReponses.setItems(mainApp.getReponsesList());
 		// lblCount.textProperty().bind(mainApp.getTaskQueue().getService().progressProperty().asString());
 	}
 
 	public void handleBtRetour() {
-		mainApp.showAccueilview();;
+		mainApp.showAccueilview();
 	}
-	
+
 	private void showUser(Utilisateur user) {
 		if (user != null) {
 			nomTitre.setVisible(true);
 			prenomTitre.setVisible(true);
 			emailTitre.setVisible(true);
+			rangTitre.setVisible(true);
 			prenomLabel.setText(user.getPrenom());
 			nomLabel.setText(user.getNom());
 			emailLabel.setText(user.getMail());
+			rangLabel.setText(user.getRang().toString());
 			aucunUtiText.setVisible(false);
 
 		} else {
@@ -130,6 +136,7 @@ public class PersonnViewController extends AbstractController {
 			prenomLabel.setText("");
 			nomLabel.setText("");
 			emailLabel.setText("");
+			rangLabel.setText("");
 		}
 	}
 
