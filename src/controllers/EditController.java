@@ -5,6 +5,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Utilisateur;
 
 public class EditController extends ModalController {
@@ -31,6 +32,8 @@ public class EditController extends ModalController {
 	private Button btCancel;
 
 	private Utilisateur user;
+	
+	private Groupe group;
 
 	public void setUser(Utilisateur user) {
 		this.user = user;
@@ -39,12 +42,12 @@ public class EditController extends ModalController {
 		txtEmail.setText(user.getMail());
 	}
 	
-//	public void setGroup(Groupe group) {
-//		this.user = user;
-//		txtCode.setText(.getNom());
-//		txtPrenom.setText(user.getPrenom());
-//		txtEmail.setText(user.getMail());
-//	}
+	public void setGroup(Groupe group) {
+		this.group = group;
+		txtCode.setText(group.getCode());
+		txtLibelle.setText(group.getLibelle());
+		
+	}
 
 
 	/**
@@ -58,6 +61,15 @@ public class EditController extends ModalController {
 			user.setMail(txtEmail.getText());
 			okClicked = true;
 			dialogStage.close();
+		}
+	}
+	
+	@FXML
+	private void handleOkGroupe(){
+		if (isInputValidGroupe()) {
+		group.setCode(txtCode.getText());
+		group.setLibelle(txtLibelle.getText());
+			
 		}
 	}
 
@@ -87,6 +99,32 @@ public class EditController extends ModalController {
 			errorMessage += "No valid email!\n";
 		}
 
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
+			alert.setContentText(errorMessage);
+
+			alert.showAndWait();
+
+			return false;
+		}
+	}
+	
+	private boolean isInputValidGroupe() {
+		String errorMessage = "";
+
+		if (txtCode.getText() == null || txtCode.getText().length() == 0) {
+			errorMessage += "Code non valide!\n";
+		}
+		if (txtLibelle.getText() == null || txtLibelle.getText().length() == 0) {
+			errorMessage += "Libellé non valide!\n";
+		}
+		
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {

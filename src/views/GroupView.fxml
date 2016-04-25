@@ -19,9 +19,9 @@
    <children>
       <SplitPane dividerPositions="0.4298245614035088" prefHeight="571.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="500.0" minWidth="0.0" prefHeight="418.0" prefWidth="340.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="340.0">
                <children>
-                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="109.0" prefHeight="449.0" prefWidth="340.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
+                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="109.0" prefHeight="438.0" prefWidth="340.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
                     <columns>
                         <TableColumn fx:id="codeColumn" prefWidth="120.0" text="Code" />
                       <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="126.0" text="Libelle" />
@@ -30,12 +30,13 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="138.0" layoutY="565.0" mnemonicParsing="false" onAction="#handleNew" text="Nouveau" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="138.0" />
-                  <ImageView fitHeight="68.0" fitWidth="321.0" layoutX="10.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                  <Button layoutX="256.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="25.0" prefWidth="70.0" text="Nouveau" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                  <ImageView fitHeight="68.0" fitWidth="321.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/titregroupe.png" />
                      </image>
                   </ImageView>
+                  <Button fx:id="btRetour" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="25.0" prefWidth="70.0" text="Retour" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="213.0">

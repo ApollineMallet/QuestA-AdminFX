@@ -24,7 +24,25 @@ public class GroupController extends AbstractController{
     @FXML
     private TableColumn<Groupe, String> codeColumn;
 
-    @FXML
+    public TableColumn<Groupe, String> getCodeColumn() {
+		return codeColumn;
+	}
+
+	public void setCodeColumn(TableColumn<Groupe, String> codeColumn) {
+		this.codeColumn = codeColumn;
+	}
+
+	public TableColumn<Groupe, String> getLibelleColumn() {
+		return libelleColumn;
+	}
+
+	public void setLibelleColumn(TableColumn<Groupe, String> libelleColumn) {
+		this.libelleColumn = libelleColumn;
+	}
+
+
+
+	@FXML
     private TableColumn<Groupe, String> libelleColumn;
 
     

@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="171.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditController">
+<AnchorPane prefHeight="141.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditController">
    <children>
-      <GridPane AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="90.0" prefWidth="472.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="10.0" prefWidth="112.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.0" minWidth="10.0" prefWidth="378.0" />
@@ -23,24 +23,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Libellé">
+            <Label fx:id="txtLibelle" text="Libellé">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label text="Code" GridPane.rowIndex="1">
+            <Label fx:id="txtCode" text="Code" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="textLibelle" GridPane.columnIndex="1" />
-            <TextField fx:id="txtCode" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textLibelle" prefHeight="25.0" prefWidth="253.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtCode" prefHeight="25.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <ButtonBar layoutX="286.0" layoutY="246.0" prefHeight="40.0" prefWidth="285.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
             <Button fx:id="btOkay" mnemonicParsing="true" onAction="#handleOk" prefHeight="30.0" prefWidth="177.0" text="_Okay" />
-          <Button fx:id="btCancel" mnemonicParsing="true" onAction="#handleCancel" text="A_nnuler" />
+          <Button fx:id="btCancel" mnemonicParsing="true" onAction="#handleCancel" prefHeight="28.0" text="A_nnuler" />
         </buttons>
       </ButtonBar>
    </children>
