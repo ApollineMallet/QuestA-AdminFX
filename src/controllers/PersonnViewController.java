@@ -18,7 +18,6 @@ import javafx.scene.text.Text;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
-import qcm.utils.GenericCellFactory;
 
 public class PersonnViewController extends AbstractController {
 	@FXML
@@ -39,10 +38,10 @@ public class PersonnViewController extends AbstractController {
 	private Label emailTitre;
 	@FXML
 	private Label rangTitre;
-	
+
 	@FXML
 	private Text aucunUtiText;
-	
+
 	@FXML
 	private Label prenomLabel;
 	@FXML
@@ -51,7 +50,7 @@ public class PersonnViewController extends AbstractController {
 	private Label emailLabel;
 	@FXML
 	private Label rangLabel;
-	
+
 	@FXML
 	private ListView<Questionnaire> lvQuizzes;
 
@@ -80,8 +79,8 @@ public class PersonnViewController extends AbstractController {
 		showUser(null);
 		personnTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showUser(newValue));
-		//lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
-		//cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
+		// lvQuizzes.setCellFactory(new GenericCellFactory<Questionnaire>());
+		// cmbReponses.setCellFactory(new GenericCellFactory<Reponse>());
 	}
 
 	public TableView<Utilisateur> getPersonnTable() {
@@ -111,8 +110,8 @@ public class PersonnViewController extends AbstractController {
 	public void setMainApp(Main mainApp) {
 		super.setMainApp(mainApp);
 		personnTable.setItems(mainApp.getPersonData());
-		//lvQuizzes.setItems(mainApp.getQuizData());
-		//cmbReponses.setItems(mainApp.getReponsesList());
+		// lvQuizzes.setItems(mainApp.getQuizData());
+		// cmbReponses.setItems(mainApp.getReponsesList());
 		// lblCount.textProperty().bind(mainApp.getTaskQueue().getService().progressProperty().asString());
 	}
 
