@@ -30,8 +30,6 @@ public class EditController extends ModalController {
 	@FXML
 	private Button btCancelUser;
 
-
-	
 	private Groupe group;
 
 	private Domaine domaine;
@@ -90,6 +88,8 @@ public class EditController extends ModalController {
 		if (isInputValidGroupe()) {
 		group.setCode(txtCode.getText());
 		group.setLibelle(txtLibelle.getText());
+		okClicked = true;
+		dialogStage.close();
 			
 		}
 	}

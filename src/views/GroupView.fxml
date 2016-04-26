@@ -19,9 +19,9 @@
    <children>
       <SplitPane dividerPositions="0.4298245614035088" prefHeight="571.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="340.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="465.0" prefWidth="340.0">
                <children>
-                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="109.0" prefHeight="438.0" prefWidth="340.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
+                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="109.0" prefHeight="493.0" prefWidth="340.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
                     <columns>
                         <TableColumn fx:id="codeColumn" prefWidth="120.0" text="Code" />
                       <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="126.0" text="Libelle" />
@@ -30,25 +30,26 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="256.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="25.0" prefWidth="70.0" text="Nouveau" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
                   <ImageView fitHeight="68.0" fitWidth="321.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/titregroupe.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btRetour" layoutX="14.0" layoutY="559.0" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="25.0" prefWidth="70.0" text="Retour" />
+                  <ButtonBar layoutX="22.0" layoutY="69.0" prefHeight="40.0" prefWidth="200.0">
+                     <buttons>
+                        <Button mnemonicParsing="false" onAction="#handleAddDomaine" prefHeight="25.0" prefWidth="70.0" text="Nouveau" />
+                        <Button mnemonicParsing="false" onAction="#handleEditGroupe" text="Modifier" />
+                        <Button mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="25.0" prefWidth="70.0" text="Retour" />
+                     </buttons>
+                  </ButtonBar>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="213.0">
                <children>
-                  <SplitPane dividerPositions="0.0050335570469798654" layoutY="280.0" orientation="VERTICAL" prefHeight="318.0" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="280.0">
+                  <TextField fx:id="idField" disable="true" visible="false" />
+                  <SplitPane layoutY="280.0" orientation="VERTICAL" prefHeight="318.0" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="280.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="344.0">
-                           <children>
-                              <TextField fx:id="idField" disable="true" layoutX="308.0" layoutY="11.0" visible="false" />
-                           </children>
-                        </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="590.0" prefWidth="308.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="595.0" prefWidth="450.0">
                            <children>
                               <SplitPane dividerPositions="0.5" layoutX="172.0" layoutY="73.0" prefHeight="274.0" prefWidth="543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <items>
@@ -82,7 +83,7 @@
                         </AnchorPane>
                     </items>
                   </SplitPane>
-                  <GridPane layoutX="14.0" prefHeight="250.0" prefWidth="520.0" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
+                  <GridPane layoutX="14.0" prefHeight="252.0" prefWidth="429.0" AnchorPane.bottomAnchor="346.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="78.0" />
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="351.0" />
@@ -100,15 +101,14 @@
                               <Insets right="2.5" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="libelleField" prefHeight="25.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <TextField fx:id="libelleField" prefHeight="25.0" prefWidth="257.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="4.0" />
                            </GridPane.margin>
                         </TextField>
                         <ButtonBar prefHeight="60.0" prefWidth="222.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                           <buttons>
-                              <Button mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Enregistrer" textFill="WHITE" />
-                            <Button minWidth="28.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="25.0" prefWidth="118.0" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Supprimer" textFill="WHITE" />
+                            <Button minWidth="28.0" mnemonicParsing="false" onAction="#handleDeleteGroupe" prefHeight="25.0" prefWidth="178.0" style="-fx-background-color: #2C98D4; -fx-background-radius: 0;" text="Supprimer" textFill="WHITE" />
                           </buttons>
                         </ButtonBar>
                         <Label text="Libellé :" textFill="WHITE" GridPane.rowIndex="2" />

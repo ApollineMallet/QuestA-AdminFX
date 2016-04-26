@@ -23,23 +23,23 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="txtLibelle" text="Libellé">
+            <Label text="Libellé">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="txtCode" text="Code" GridPane.rowIndex="1">
+            <Label text="Code" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="textLibelle" prefHeight="25.0" prefWidth="253.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtLibelle" prefHeight="25.0" prefWidth="253.0" GridPane.columnIndex="1" />
             <TextField fx:id="txtCode" prefHeight="25.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <ButtonBar layoutX="286.0" layoutY="246.0" prefHeight="40.0" prefWidth="285.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-            <Button fx:id="btOkay" mnemonicParsing="true" onAction="#handleOk" prefHeight="30.0" prefWidth="177.0" text="_Okay" />
+            <Button fx:id="btOkay" mnemonicParsing="true" onAction="#handleOkGroupe" prefHeight="30.0" prefWidth="177.0" text="Enregistrer" />
           <Button fx:id="btCancel" mnemonicParsing="true" onAction="#handleCancel" prefHeight="28.0" text="A_nnuler" />
         </buttons>
       </ButtonBar>

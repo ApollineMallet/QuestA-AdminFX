@@ -1,6 +1,10 @@
 package controllers;
 
 
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+
 import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
@@ -11,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Utilisateur;
@@ -114,29 +119,52 @@ public class GroupController extends AbstractController{
 	}
   
     
-
-	@FXML
-	void handleDelete(ActionEvent event) {
-
-		int selInxdex = groupList.getSelectionModel().getSelectedIndex();
-		Groupe selectedGroup = groupList.getSelectionModel().getSelectedItem();
-		if (selInxdex >= 0) {
-			boolean alert = new Alert(AlertType.WARNING);
-			
-			
-			
-			if (alert) {
-				groupList.getItems().remove(selInxdex);
+    public void handleEditGroupe() throws ClientProtocolException, IllegalAccessException, IOException {
+		Groupe selectedGroupe = groupList.getSelectionModel().getSelectedItem();
+		if (selectedGroupe != null) {
+			boolean okClicked = mainApp.showGroupEditDialog(selectedGroupe);
+			if (okClicked) {
 				try {
-					mainApp.getTaskQueue().delete(selectedGroup, selectedGroup.getId());
-				} catch (Exception e) {
-					GraphicUtils.showException(e);
+					mainApp.getTaskQueue().update(selectedGroupe, selectedGroupe.getId());
+					// mainApp.getWebGate().update(selectedDomaine,
+					// selectedDomaine.getId());
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
+				groupList.refresh();
 			}
+
 		} else {
-			new GraphicUtils(this.mainApp).showDialog("Erreur", "", "Veuillez selectionner un groupe");
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("Aucun groupe n'est selectionné.");
+			alert.setContentText("Veuillez selectionner un groupe dans la liste.");
+			alert.showAndWait();
 		}
 	}
+    
+    @FXML
+	public void handleDeleteGroupe() {
+		int selectedIndex = groupList.getSelectionModel().getSelectedIndex();
+		Groupe selectedGroupe = groupList.getSelectionModel().getSelectedItem();
+		if (selectedIndex >= 0) {
+			groupList.getItems().remove(selectedIndex);
+			mainApp.getTaskQueue().delete(selectedGroupe, selectedGroupe.getId());
+			groupList.refresh();
+		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("Aucun domaine n'est selectionné.");
+			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
+
+			alert.showAndWait();
+		}
+	}
+	
     public void showGroup(Groupe group){
     	if(group == null){
     		idField.setText("0");
@@ -158,23 +186,27 @@ public class GroupController extends AbstractController{
     void handleSave(ActionEvent event) {
     
     }
+    @FXML
+    public void handleAddDomaine() {
+		mainApp.getTaskQueue().getAll(Groupe.class);
+		Groupe groupe = new Groupe();
+		boolean okClicked = mainApp.showGroupEditDialog(groupe);
+		if (okClicked) {
+			mainApp.getGroupData().add(groupe);
+			try {
+				mainApp.getWebGate().add(groupe);
+			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
     
-   @FXML
-   void handleNew(ActionEvent event) {
-//   	mainApp.getTaskQueue().getAll(Groupe.class);
-//		Groupe group = new Groupe();
-//		boolean okClicked = mainApp.showPersonEditDialog(group);
-//		if (okClicked) {
-//			mainApp.getPersonData().add(group);
-//			try {
-//				mainApp.getWebGate().add(group);
-//			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-    }
     
+    
+    public void handleBtRetour() {
+		mainApp.showAccueilview();
+	}
   
     
 //    @FXML

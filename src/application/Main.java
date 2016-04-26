@@ -135,6 +135,16 @@ public class Main extends Application implements Observer {
 		});
 	}
 	
+	public boolean showGroupEditDialog(Groupe groupe) {
+		return ViewUtils.showDialog("/views/EditGroup.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setGroup(groupe);
+				return "Edition groupe";
+			}
+		});
+	}
+	
 	public boolean showDomaineEditDialog(Domaine domaine) {
 		return ViewUtils.showDialog("/views/EditDomaine.fxml", primaryStage, new Function<EditController, String>() {
 			@Override
@@ -213,6 +223,16 @@ public class Main extends Application implements Observer {
 	public void setPersonData(ObservableList<Utilisateur> personData) {
 		this.usersList = personData;
 	}
+	
+	
+	
+	public ObservableList<Groupe> getGroupData() {
+		return groupeList;
+	}
+
+	public void setGroupData(ObservableList<Groupe> groupData) {
+		this.groupeList = groupData;
+		}
 
 	public ObservableList<Domaine> getDomaineData() {
 		return domainesList;
