@@ -6,11 +6,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import qcm.models.pojo.Domaine;
+import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Utilisateur;
 
 public class EditController extends ModalController {
 
 	private Utilisateur user;
+	
 	@FXML
 	private TextField txtNomUser;
 	@FXML
@@ -35,6 +37,20 @@ public class EditController extends ModalController {
 	@FXML
 	private Button btCancelDomaine;
 	
+	
+	
+	private Questionnaire quiz;
+	@FXML
+	private TextField txtLibelleQuiz;
+	@FXML
+	private TextField txtLibelleQuizDom;
+	@FXML
+	private Button btValiderQuiz;
+	@FXML
+	private Button btCancelQuiz;
+	
+	
+	
 	public void setUser(Utilisateur user) {
 		this.user = user;
 		txtNomUser.setText(user.getNom());
@@ -45,6 +61,12 @@ public class EditController extends ModalController {
 	public void setDomaine (Domaine domaine) {
 		this.domaine = domaine;
 		txtLibelleDomaine.setText(domaine.getLibelle());		
+	}
+	
+	public void setQuiz (Questionnaire Q) {
+		this.quiz = Q;
+		txtLibelleQuiz.setText(Q.getLibelle());	
+		txtLibelleQuizDom.setText(Q.getLibelle());
 	}
 	
 //	public void setGroup(Groupe group) {
@@ -75,6 +97,16 @@ public class EditController extends ModalController {
 	private void handleDomaineOK() {
 		if(isInputValidDomaine()) {
 			domaine.setLibelle(txtLibelleDomaine.getText());
+			okClicked = true;
+			dialogStage.close();
+		}
+	}
+	
+	
+	@FXML
+	private void handleQuizOK() {
+		if(isInputValidQuiz()) {
+			quiz.setLibelle(txtLibelleQuiz.getText());
 			okClicked = true;
 			dialogStage.close();
 		}
@@ -125,6 +157,28 @@ public class EditController extends ModalController {
 		String errorMessage = "";
 		
 		if (txtLibelleDomaine.getText() == null || txtLibelleDomaine.getText().length() == 0) {
+			errorMessage = "Libelle non valide !\n";
+		}
+		
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
+			alert.setContentText(errorMessage);
+			alert.showAndWait();
+			return false;
+		}
+	}
+
+	
+	private boolean isInputValidQuiz() {
+		String errorMessage = "";
+		
+		if (txtLibelleQuiz.getText() == null || txtLibelleQuiz.getText().length() == 0) {
 			errorMessage = "Libelle non valide !\n";
 		}
 		

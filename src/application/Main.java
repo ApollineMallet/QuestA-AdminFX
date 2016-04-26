@@ -145,6 +145,17 @@ public class Main extends Application implements Observer {
 		});
 	}
 	
+	
+	public boolean showQuizEditDialog(Questionnaire Q) {
+		return ViewUtils.showDialog("/views/QuizCreate.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setQuiz(Q);
+				return "Edition domaine";
+			}
+		});
+	}
+	
 	public void showConnexion() {
 		if (ViewUtils.showDialog("/views/LoginView.fxml", primaryStage, new Function<LoginController, String>() {
 
@@ -228,6 +239,16 @@ public class Main extends Application implements Observer {
 
 	public TaskQueue getTaskQueue() {
 		return taskQueue;
+	}
+	
+	
+	
+	
+	
+	
+
+	public void setQuizData(ObservableList<Questionnaire> quizData) {
+		this.quizList = quizData;
 	}
 
 	@Override
