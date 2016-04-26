@@ -5,11 +5,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-<<<<<<< HEAD
+
 import qcm.models.pojo.Groupe;
-=======
+
 import qcm.models.pojo.Domaine;
->>>>>>> origin/master
+
 import qcm.models.pojo.Utilisateur;
 
 public class EditController extends ModalController {
@@ -30,11 +30,10 @@ public class EditController extends ModalController {
 	@FXML
 	private Button btCancelUser;
 
-<<<<<<< HEAD
-	private Utilisateur user;
+
 	
 	private Groupe group;
-=======
+
 	private Domaine domaine;
 	@FXML
 	private TextField txtLibelleDomaine;
@@ -42,7 +41,7 @@ public class EditController extends ModalController {
 	private Button btValiderDomaine;
 	@FXML
 	private Button btCancelDomaine;
->>>>>>> origin/master
+
 
 	public void setUser(Utilisateur user) {
 		this.user = user;
@@ -50,7 +49,7 @@ public class EditController extends ModalController {
 		txtPrenomUser.setText(user.getPrenom());
 		txtEmailUser.setText(user.getMail());
 	}
-<<<<<<< HEAD
+
 	
 	public void setGroup(Groupe group) {
 		this.group = group;
@@ -58,8 +57,7 @@ public class EditController extends ModalController {
 		txtLibelle.setText(group.getLibelle());
 		
 	}
-=======
->>>>>>> origin/master
+
 
 	public void setDomaine(Domaine domaine) {
 		this.domaine = domaine;

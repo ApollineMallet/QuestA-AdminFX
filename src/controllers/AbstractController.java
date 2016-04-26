@@ -21,4 +21,9 @@ public abstract class AbstractController {
 
 	}
 
+	public void setMainApp(MainApp mainApp) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

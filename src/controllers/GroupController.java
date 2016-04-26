@@ -1,20 +1,20 @@
 package controllers;
 
+
 import application.Main;
 import javafx.beans.property.SimpleObjectProperty;
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Utilisateur;
+import qcm.utils.*;
 
 public class GroupController extends AbstractController{
 
@@ -67,7 +67,12 @@ public class GroupController extends AbstractController{
     @FXML
     private TableColumn<Questionnaire, String> quizzColumn;
 
+	@Override
+	public void setMainApp(MainApp mainApp) {
+		super.setMainApp(mainApp);
 
+	
+	}
 
     @FXML
 	private void initialize() {
@@ -108,6 +113,30 @@ public class GroupController extends AbstractController{
 		
 	}
   
+    
+
+	@FXML
+	void handleDelete(ActionEvent event) {
+
+		int selInxdex = groupList.getSelectionModel().getSelectedIndex();
+		Groupe selectedGroup = groupList.getSelectionModel().getSelectedItem();
+		if (selInxdex >= 0) {
+			boolean alert = new Alert(AlertType.WARNING);
+			
+			
+			
+			if (alert) {
+				groupList.getItems().remove(selInxdex);
+				try {
+					mainApp.getTaskQueue().delete(selectedGroup, selectedGroup.getId());
+				} catch (Exception e) {
+					GraphicUtils.showException(e);
+				}
+			}
+		} else {
+			new GraphicUtils(this.mainApp).showDialog("Erreur", "", "Veuillez selectionner un groupe");
+		}
+	}
     public void showGroup(Groupe group){
     	if(group == null){
     		idField.setText("0");
@@ -148,10 +177,10 @@ public class GroupController extends AbstractController{
     
   
     
-    @FXML
-    void handleDelete(ActionEvent event) {
-
-		
-    }
+//    @FXML
+//    void handleDelete(ActionEvent event) {
+//
+//		
+//    }
 
 }

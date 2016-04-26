@@ -9,6 +9,8 @@ public class MainController {
 
 	private Main mainApp;
 
+
+	
 	@FXML
 	private ProgressBar pbTasks;
 
