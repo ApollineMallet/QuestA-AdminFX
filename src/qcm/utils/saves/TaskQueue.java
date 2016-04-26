@@ -35,7 +35,7 @@ public class TaskQueue extends Observable {
 				return webGate.add(o);
 			}
 		};
-		put(new DelayedTask(updateOperation, 5000));
+		put(new DelayedTask(updateOperation, 1000));
 	}
 
 	public void update(Object o, Object id) {
@@ -45,7 +45,7 @@ public class TaskQueue extends Observable {
 				return webGate.update(o, id);
 			}
 		};
-		put(new DelayedTask(updateOperation, 5000));
+		put(new DelayedTask(updateOperation, 1000));
 	}
 
 	public void delete(Object o, Object id) {
@@ -55,7 +55,7 @@ public class TaskQueue extends Observable {
 				return webGate.delete(o, id);
 			}
 		};
-		put(new DelayedTask(deleteOperation, 5000));
+		put(new DelayedTask(deleteOperation, 1000));
 	}
 
 	public void get(Class<? extends Object> clazz, int offset, int limit) {

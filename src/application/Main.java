@@ -17,10 +17,8 @@ import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -134,7 +132,7 @@ public class Main extends Application implements Observer {
 			}
 		});
 	}
-	
+
 	public boolean showDomaineEditDialog(Domaine domaine) {
 		return ViewUtils.showDialog("/views/EditDomaine.fxml", primaryStage, new Function<EditController, String>() {
 			@Override
@@ -144,6 +142,7 @@ public class Main extends Application implements Observer {
 			}
 		});
 	}
+
 	
 	
 	public boolean showQuizEditDialog(Questionnaire Q) {
@@ -156,6 +155,7 @@ public class Main extends Application implements Observer {
 		});
 	}
 	
+
 	public void showConnexion() {
 		if (ViewUtils.showDialog("/views/LoginView.fxml", primaryStage, new Function<LoginController, String>() {
 
@@ -275,11 +275,11 @@ public class Main extends Application implements Observer {
 	}
 
 	public void loadLists() {
-		taskQueue.getAll(Utilisateur.class);
 		taskQueue.getAll(Questionnaire.class);
 		taskQueue.getAll(Reponse.class);
 		taskQueue.getAll(Domaine.class);
 		taskQueue.getAll(Groupe.class);
+		taskQueue.getAll(Utilisateur.class);
 	}
 
 	public BorderPane getRootLayout() {

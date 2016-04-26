@@ -17,7 +17,7 @@ public class EditController extends ModalController {
 	private TextField txtNomUser;
 	@FXML
 	private TextField txtCode;
-	@FXML 
+	@FXML
 	private TextField txtLibelle;
 	@FXML
 	private TextField txtPrenomUser;
@@ -27,8 +27,7 @@ public class EditController extends ModalController {
 	private Button btOkayUser;
 	@FXML
 	private Button btCancelUser;
-	
-	
+
 	private Domaine domaine;
 	@FXML
 	private TextField txtLibelleDomaine;
@@ -36,6 +35,7 @@ public class EditController extends ModalController {
 	private Button btValiderDomaine;
 	@FXML
 	private Button btCancelDomaine;
+
 	
 	
 	
@@ -51,17 +51,19 @@ public class EditController extends ModalController {
 	
 	
 	
+
 	public void setUser(Utilisateur user) {
 		this.user = user;
 		txtNomUser.setText(user.getNom());
 		txtPrenomUser.setText(user.getPrenom());
 		txtEmailUser.setText(user.getMail());
 	}
-	
-	public void setDomaine (Domaine domaine) {
+
+	public void setDomaine(Domaine domaine) {
 		this.domaine = domaine;
-		txtLibelleDomaine.setText(domaine.getLibelle());		
+		txtLibelleDomaine.setText(domaine.getLibelle());
 	}
+
 	
 	public void setQuiz (Questionnaire Q) {
 		this.quiz = Q;
@@ -76,6 +78,7 @@ public class EditController extends ModalController {
 //		txtEmail.setText(user.getMail());
 //	}
 
+
 	/**
 	 * Called when the user clicks ok.
 	 */
@@ -89,18 +92,19 @@ public class EditController extends ModalController {
 			dialogStage.close();
 		}
 	}
-	
+
 	/**
 	 * Called when the user clicks ok.
 	 */
 	@FXML
-	private void handleDomaineOK() {
-		if(isInputValidDomaine()) {
+	private void handleDomaineOk() {
+		if (isInputValidDomaine()) {
 			domaine.setLibelle(txtLibelleDomaine.getText());
 			okClicked = true;
 			dialogStage.close();
 		}
 	}
+
 	
 	
 	@FXML
@@ -112,6 +116,7 @@ public class EditController extends ModalController {
 		}
 	}
 	
+
 
 	/**
 	 * Validates the user input in the text fields.
@@ -146,8 +151,7 @@ public class EditController extends ModalController {
 			return false;
 		}
 	}
-	
-	
+
 	/**
 	 * Validates the user input in the text fields.
 	 *
@@ -155,11 +159,11 @@ public class EditController extends ModalController {
 	 */
 	private boolean isInputValidDomaine() {
 		String errorMessage = "";
-		
+
 		if (txtLibelleDomaine.getText() == null || txtLibelleDomaine.getText().length() == 0) {
 			errorMessage = "Libelle non valide !\n";
 		}
-		
+
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {
@@ -173,6 +177,7 @@ public class EditController extends ModalController {
 			return false;
 		}
 	}
+
 
 	
 	private boolean isInputValidQuiz() {
@@ -197,6 +202,7 @@ public class EditController extends ModalController {
 	}
 
 	
+
 	/**
 	 * Called when the user clicks cancel.
 	 */

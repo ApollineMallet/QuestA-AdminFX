@@ -2,21 +2,22 @@ package controllers;
 
 import java.io.IOException;
 
+import org.apache.http.client.ClientProtocolException;
+
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Alert.AlertType;
 import qcm.models.pojo.Domaine;
-import qcm.models.pojo.Utilisateur;
 import qcm.utils.GenericCellFactory;
 
 public class DomaineController extends AbstractController {
 
 	@FXML
 	private ListView<Domaine> domaineList;
-	
+
 	@FXML
 	private Button btRetour;
 
@@ -28,7 +29,7 @@ public class DomaineController extends AbstractController {
 	public void handleBtRetour() {
 		mainApp.showAccueilview();
 	}
-	
+
 	public void handleAddDomaine() {
 		mainApp.getTaskQueue().getAll(Domaine.class);
 		Domaine domaine = new Domaine();
@@ -43,8 +44,8 @@ public class DomaineController extends AbstractController {
 			}
 		}
 	}
-	
-	public void handleEditDomaine() {
+
+	public void handleEditDomaine() throws ClientProtocolException, IllegalAccessException, IOException {
 		Domaine selectedDomaine = domaineList.getSelectionModel().getSelectedItem();
 		if (selectedDomaine != null) {
 			boolean okClicked = mainApp.showDomaineEditDialog(selectedDomaine);
@@ -57,7 +58,6 @@ public class DomaineController extends AbstractController {
 				}
 				domaineList.refresh();
 			}
-
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
@@ -86,7 +86,7 @@ public class DomaineController extends AbstractController {
 			alert.showAndWait();
 		}
 	}
-	
+
 	public void setMainApp(Main mainApp) {
 		super.setMainApp(mainApp);
 		domaineList.setItems(mainApp.getDomaineData());
