@@ -37,7 +37,10 @@ public class DomaineController extends AbstractController {
 		if (okClicked) {
 			mainApp.getDomaineData().add(domaine);
 			try {
-				mainApp.getWebGate().add(domaine);
+				String res = mainApp.getWebGate().add(domaine);
+				String jsonElement = mainApp.getWebGate().getControllerUrl(Domaine.class);
+				// Domaine d = mainApp.getWebGate().getJsonObject(res,
+				// jsonElement, Domaine.class);
 			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -51,7 +54,7 @@ public class DomaineController extends AbstractController {
 			boolean okClicked = mainApp.showDomaineEditDialog(selectedDomaine);
 			if (okClicked) {
 				try {
-					mainApp.getTaskQueue().update(selectedDomaine, selectedDomaine.getId());
+					mainApp.getWebGate().update(selectedDomaine, selectedDomaine.getId());
 				} catch (IllegalArgumentException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -63,7 +66,7 @@ public class DomaineController extends AbstractController {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("Aucun domaine n'est selectionné.");
+			alert.setHeaderText("Aucun domaine n'est selectionnÃ©.");
 			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
 			alert.showAndWait();
 		}
@@ -80,7 +83,7 @@ public class DomaineController extends AbstractController {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("Aucun domaine n'est selectionné.");
+			alert.setHeaderText("Aucun domaine n'est selectionnÃ©.");
 			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
 
 			alert.showAndWait();
