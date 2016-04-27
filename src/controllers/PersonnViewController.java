@@ -130,7 +130,6 @@ public class PersonnViewController extends AbstractController {
 			emailLabel.setText(user.getMail());
 			rangLabel.setText(user.getRang().toString());
 			aucunUtiText.setVisible(false);
-
 		} else {
 			aucunUtiText.setVisible(true);
 			prenomLabel.setText("");
