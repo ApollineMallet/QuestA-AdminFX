@@ -10,11 +10,14 @@ import qcm.models.pojo.Groupe;
 
 import qcm.models.pojo.Domaine;
 
+import qcm.models.pojo.Questionnaire;
+
 import qcm.models.pojo.Utilisateur;
 
 public class EditController extends ModalController {
 
 	private Utilisateur user;
+	
 	@FXML
 	private TextField txtNomUser;
 	@FXML
@@ -41,6 +44,22 @@ public class EditController extends ModalController {
 	private Button btCancelDomaine;
 
 
+	
+	
+	private Questionnaire quiz;
+	@FXML
+	private TextField txtLibelleQuiz;
+	@FXML
+	private TextField txtLibelleQuizDom;
+	@FXML
+	private Button btValiderQuiz;
+	@FXML
+	private Button btCancelQuiz;
+	
+	
+	
+
+
 	public void setUser(Utilisateur user) {
 		this.user = user;
 		txtNomUser.setText(user.getNom());
@@ -62,12 +81,20 @@ public class EditController extends ModalController {
 		txtLibelleDomaine.setText(domaine.getLibelle());
 	}
 
-	// public void setGroup(Groupe group) {
-	// this.user = user;
-	// txtCode.setText(.getNom());
-	// txtPrenom.setText(user.getPrenom());
-	// txtEmail.setText(user.getMail());
-	// }
+	
+	public void setQuiz (Questionnaire Q) {
+		this.quiz = Q;
+		txtLibelleQuiz.setText(Q.getLibelle());	
+		txtLibelleQuizDom.setText(Q.getLibelle());
+	}
+	
+//	public void setGroup(Groupe group) {
+//		this.user = user;
+//		txtCode.setText(.getNom());
+//		txtPrenom.setText(user.getPrenom());
+//		txtEmail.setText(user.getMail());
+//	}
+
 
 	/**
 	 * Called when the user clicks ok.
@@ -105,6 +132,19 @@ public class EditController extends ModalController {
 			dialogStage.close();
 		}
 	}
+
+	
+	
+	@FXML
+	private void handleQuizOK() {
+		if(isInputValidQuiz()) {
+			quiz.setLibelle(txtLibelleQuiz.getText());
+			okClicked = true;
+			dialogStage.close();
+		}
+	}
+	
+
 
 	/**
 	 * Validates the user input in the text fields.
@@ -191,6 +231,31 @@ public class EditController extends ModalController {
 			return false;
 		}
 	}
+
+
+	
+	private boolean isInputValidQuiz() {
+		String errorMessage = "";
+		
+		if (txtLibelleQuiz.getText() == null || txtLibelleQuiz.getText().length() == 0) {
+			errorMessage = "Libelle non valide !\n";
+		}
+		
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
+			alert.setContentText(errorMessage);
+			alert.showAndWait();
+			return false;
+		}
+	}
+
+	
 
 	/**
 	 * Called when the user clicks cancel.

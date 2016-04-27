@@ -52,21 +52,18 @@ public class DomaineController extends AbstractController {
 			if (okClicked) {
 				try {
 					mainApp.getTaskQueue().update(selectedDomaine, selectedDomaine.getId());
-					// mainApp.getWebGate().update(selectedDomaine,
-					// selectedDomaine.getId());
 				} catch (IllegalArgumentException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				domaineList.refresh();
 			}
-
 		} else {
 			// Nothing selected.
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("Aucun domaine n'est selectionnÃ©.");
+			alert.setHeaderText("Aucun domaine n'est selectionné.");
 			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
 			alert.showAndWait();
 		}
@@ -79,12 +76,11 @@ public class DomaineController extends AbstractController {
 		if (selectedIndex >= 0) {
 			domaineList.getItems().remove(selectedIndex);
 			mainApp.getTaskQueue().delete(selectedDomaine, selectedDomaine.getId());
-			domaineList.refresh();
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("Aucun domaine n'est selectionnÃ©.");
+			alert.setHeaderText("Aucun domaine n'est selectionné.");
 			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
 
 			alert.showAndWait();
