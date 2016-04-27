@@ -24,6 +24,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
+import qcm.models.pojo.Groupe_questionnaire;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
@@ -39,8 +40,11 @@ public class Main extends Application implements Observer {
 	private ObservableList<Domaine> domainesList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Groupe_questionnaire> GrquizList;
 	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
+	
+
 	private DomaineController domaineController;
 	private AccueilController accueilController;
 	private WebGate webGate;
@@ -207,6 +211,7 @@ public class Main extends Application implements Observer {
 		reponsesList = webGate.getList(Reponse.class);
 		domainesList = webGate.getList(Domaine.class);
 		groupeList = webGate.getList(Groupe.class);
+		
 
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
@@ -222,6 +227,8 @@ public class Main extends Application implements Observer {
 	 * 
 	 * @return
 	 */
+
+	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
@@ -327,6 +334,22 @@ public class Main extends Application implements Observer {
 
 	public ObservableList<Groupe> getGroupeList() {
 		return groupeList;
+	}
+
+	public ObservableList<Questionnaire> getQuizList() {
+		return quizList;
+	}
+
+	public void setQuizList(ObservableList<Questionnaire> quizList) {
+		this.quizList = quizList;
+	}
+
+	public ObservableList<Utilisateur> getUsersList() {
+		return usersList;
+	}
+
+	public void setUsersList(ObservableList<Utilisateur> usersList) {
+		this.usersList = usersList;
 	}
 
 	public void setGroupeList(ObservableList<Groupe> groupeList) {

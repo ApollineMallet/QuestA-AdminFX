@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
+import qcm.models.pojo.Groupe_questionnaire;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Utilisateur;
 import qcm.utils.*;
@@ -69,6 +70,7 @@ public class GroupController extends AbstractController{
     @FXML
     private TableView<Questionnaire> quizzList;
 
+    
     @FXML
     private TableColumn<Questionnaire, String> quizzColumn;
 
@@ -114,11 +116,18 @@ public class GroupController extends AbstractController{
     
     public void setMainApp(Main mainApp) {
 		super.setMainApp(mainApp);
+		
+				
+		userList.setItems(mainApp.getUsersList());		
+		
 		groupList.setItems(mainApp.getGroupeList());
 		
+		quizzList.setItems(mainApp.getQuizList());
+		
+	
 	}
-  
-    
+ 
+   
     public void handleEditGroupe() throws ClientProtocolException, IllegalAccessException, IOException {
 		Groupe selectedGroupe = groupList.getSelectionModel().getSelectedItem();
 		if (selectedGroupe != null) {
@@ -158,8 +167,8 @@ public class GroupController extends AbstractController{
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
 			alert.setTitle("No Selection");
-			alert.setHeaderText("Aucun domaine n'est selectionné.");
-			alert.setContentText("Veuillez selectionner un domaine dans la liste.");
+			alert.setHeaderText("Aucun groupe n'est selectionné.");
+			alert.setContentText("Veuillez selectionner un groupe dans la liste.");
 
 			alert.showAndWait();
 		}

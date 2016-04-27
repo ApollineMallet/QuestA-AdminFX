@@ -31,7 +31,7 @@ public class WebGate {
 		restUrlMappings.put("Domaine", "domaine");
 		restUrlMappings.put("Groupe", "groupe");
 		restUrlMappings.put("Groupe_questionnaire", "quizzgroup");
-		restUrlMappings.put("Groupe_utilisateur", "usergroup");
+		restUrlMappings.put("Utilisateur_groupe", "usergroup");
 		restUrlMappings.put("Question_questionnaire", "questquizz");
 	}
 
