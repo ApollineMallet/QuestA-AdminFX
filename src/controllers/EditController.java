@@ -84,8 +84,8 @@ public class EditController extends ModalController {
 	
 	public void setQuiz (Questionnaire Q) {
 		this.quiz = Q;
-		txtLibelleQuiz.setText(Q.getLibelle());	
-		txtLibelleQuizDom.setText(Q.getLibelle());
+		txtLibelleQuiz.setText(Q.getLibelle());
+		txtLibelleQuizDom.setText(Q.getDomaine().toString());
 	}
 	
 //	public void setGroup(Groupe group) {
@@ -139,6 +139,7 @@ public class EditController extends ModalController {
 	private void handleQuizOK() {
 		if(isInputValidQuiz()) {
 			quiz.setLibelle(txtLibelleQuiz.getText());
+			//quiz.setDomaine(txtLibelleQuizDom.getselectedobject);
 			okClicked = true;
 			dialogStage.close();
 		}
