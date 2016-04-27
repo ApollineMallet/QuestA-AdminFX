@@ -30,17 +30,17 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="287.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="287.0" layoutY="68.0" onMouseClicked="#handleEditQuestion" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/pencil.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="189.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="189.0" layoutY="68.0" onMouseClicked="#handleAddQuest" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/add-circular-outlined-button.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="68.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/back-arrow.png" />
                      </image>
@@ -110,7 +110,7 @@
                         </TextField>
                         <ButtonBar prefHeight="60.0" prefWidth="158.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                            <buttons>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#handleDeleteQuestion" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@img/cancel.png" />
                                  </image>

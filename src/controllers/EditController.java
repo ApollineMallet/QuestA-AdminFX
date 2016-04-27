@@ -14,6 +14,8 @@ import qcm.models.pojo.Questionnaire;
 
 import qcm.models.pojo.Utilisateur;
 
+import qcm.models.pojo.Question;
+
 public class EditController extends ModalController {
 
 	private Utilisateur user;
@@ -34,6 +36,8 @@ public class EditController extends ModalController {
 	private Button btCancelUser;
 
 	private Groupe group;
+	
+	private Question quest;
 
 	private Domaine domaine;
 	@FXML
@@ -72,6 +76,12 @@ public class EditController extends ModalController {
 		this.group = group;
 		txtCode.setText(group.getCode());
 		txtLibelle.setText(group.getLibelle());
+		
+	}
+	
+	public void setQuest(Question quest) {
+		this.quest = quest;	
+		txtLibelle.setText(quest.getLibelle());
 		
 	}
 
@@ -115,6 +125,17 @@ public class EditController extends ModalController {
 		if (isInputValidGroupe()) {
 		group.setCode(txtCode.getText());
 		group.setLibelle(txtLibelle.getText());
+		okClicked = true;
+		dialogStage.close();
+			
+		}
+	}
+	
+	@FXML
+	private void handleOkQuest(){
+		if (isInputValidQuest()) {
+		
+		quest.setLibelle(txtLibelle.getText());
 		okClicked = true;
 		dialogStage.close();
 			
@@ -186,6 +207,30 @@ public class EditController extends ModalController {
 		if (txtCode.getText() == null || txtCode.getText().length() == 0) {
 			errorMessage += "Code non valide!\n";
 		}
+		if (txtLibelle.getText() == null || txtLibelle.getText().length() == 0) {
+			errorMessage += "Libellé non valide!\n";
+		}
+		
+		if (errorMessage.length() == 0) {
+			return true;
+		} else {
+			// Show the error message.
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.initOwner(dialogStage);
+			alert.setTitle("Invalid Fields");
+			alert.setHeaderText("Please correct invalid fields");
+			alert.setContentText(errorMessage);
+
+			alert.showAndWait();
+
+			return false;
+		}
+	}
+	
+	private boolean isInputValidQuest() {
+		String errorMessage = "";
+
+		
 		if (txtLibelle.getText() == null || txtLibelle.getText().length() == 0) {
 			errorMessage += "Libellé non valide!\n";
 		}

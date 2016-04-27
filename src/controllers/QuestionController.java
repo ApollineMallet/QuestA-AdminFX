@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import qcm.models.pojo.Domaine;
-
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
 import qcm.models.pojo.Question;
 import qcm.models.pojo.Utilisateur;
@@ -75,7 +75,75 @@ public class QuestionController extends AbstractController{
     	}
     }
     
-	
+    
+    public void handleEditQuestion() throws ClientProtocolException, IllegalAccessException, IOException {
+		Question selectedQuest = questList.getSelectionModel().getSelectedItem();
+		if (selectedQuest != null) {
+			boolean okClicked = mainApp.showQuestEditDialog(selectedQuest);
+			if (okClicked) {
+				try {
+					mainApp.getTaskQueue().update(selectedQuest, selectedQuest.getId());
+					// mainApp.getWebGate().update(selectedDomaine,
+					// selectedDomaine.getId());
+				} catch (IllegalArgumentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				questList.refresh();
+			}
+
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("Aucune question n'est selectionnée.");
+			alert.setContentText("Veuillez selectionner une question dans la liste.");
+			alert.showAndWait();
+		}
+	}
+    
+    @FXML
+	public void handleDeleteQuestion() {
+		int selectedIndex = questList.getSelectionModel().getSelectedIndex();
+		Question selectedQuest = questList.getSelectionModel().getSelectedItem();
+		if (selectedIndex >= 0) {
+			questList.getItems().remove(selectedIndex);
+			mainApp.getTaskQueue().delete(selectedQuest, selectedQuest.getId());
+			questList.refresh();
+		} else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("Aucune question n'est selectionnée.");
+			alert.setContentText("Veuillez selectionner une questionS dans la liste.");
+
+			alert.showAndWait();
+		}
+	}
+    
+    @FXML
+    public void handleAddQuest() {
+		mainApp.getTaskQueue().getAll(Question.class);
+		Question quest = new Question();
+		boolean okClicked = mainApp.showQuestEditDialog(quest);
+		if (okClicked) {
+			mainApp.getQuestData().add(quest);
+			try {
+				mainApp.getWebGate().add(quest);
+			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+    
+    
+    
+    public void handleBtRetour() {
+		mainApp.showAccueilview();
+	}
+    
     @FXML
 	private void initialize() {
     		

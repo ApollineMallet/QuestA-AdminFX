@@ -156,6 +156,16 @@ public class Main extends Application implements Observer {
 		});
 	}
 	
+	public boolean showQuestEditDialog(Question quest) {
+		return ViewUtils.showDialog("/views/EditQuest.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setQuest(quest);
+				return "Edition question";
+			}
+		});
+	}
+	
 
 
 	public boolean showDomaineEditDialog(Domaine domaine) {
@@ -270,6 +280,13 @@ public class Main extends Application implements Observer {
 
 	public void setGroupData(ObservableList<Groupe> groupData) {
 		this.groupeList = groupData;
+		}
+	public ObservableList<Question> getQuestData() {
+		return questList;
+	}
+
+	public void setQuestData(ObservableList<Question> questData) {
+		this.questList = questData;
 		}
 
 	public ObservableList<Domaine> getDomaineData() {
