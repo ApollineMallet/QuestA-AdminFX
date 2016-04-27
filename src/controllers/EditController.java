@@ -1,23 +1,27 @@
 package controllers;
 
+import java.util.Observable;
+
+import application.Main;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-
-import qcm.models.pojo.Groupe;
-
 import qcm.models.pojo.Domaine;
-
+import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
-
+import qcm.models.pojo.Rang;
 import qcm.models.pojo.Utilisateur;
+import qcm.utils.GenericCellFactory;
 
 public class EditController extends ModalController {
 
 	private Utilisateur user;
-	
 	@FXML
 	private TextField txtNomUser;
 	@FXML
@@ -28,6 +32,8 @@ public class EditController extends ModalController {
 	private TextField txtPrenomUser;
 	@FXML
 	private TextField txtEmailUser;
+	@FXML
+	private ComboBox<String> comboxRang;
 	@FXML
 	private Button btOkayUser;
 	@FXML
@@ -56,15 +62,24 @@ public class EditController extends ModalController {
 	@FXML
 	private Button btCancelQuiz;
 	
-	
-	
+	public Main mainApp;
 
-
+	@SuppressWarnings("null")
 	public void setUser(Utilisateur user) {
 		this.user = user;
 		txtNomUser.setText(user.getNom());
 		txtPrenomUser.setText(user.getPrenom());
 		txtEmailUser.setText(user.getMail());
+		
+		/*ObservableList <Rang> lesRangs = mainApp.getRangData();
+		ObservableList <String> listRang = null;
+		for (Rang rg : lesRangs) {
+			listRang.add(rg.getLibelle());
+		}
+		comboxRang.setItems(listRang);*/
+		
+		comboxRang.getItems().addAll("utilisateur", "admin");
+		
 	}
 
 	
@@ -188,7 +203,7 @@ public class EditController extends ModalController {
 			errorMessage += "Code non valide!\n";
 		}
 		if (txtLibelle.getText() == null || txtLibelle.getText().length() == 0) {
-			errorMessage += "Libellé non valide!\n";
+			errorMessage += "LibellÃ© non valide!\n";
 		}
 		
 		if (errorMessage.length() == 0) {

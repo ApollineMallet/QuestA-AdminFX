@@ -35,12 +35,12 @@ public class DomaineController extends AbstractController {
 		Domaine domaine = new Domaine();
 		boolean okClicked = mainApp.showDomaineEditDialog(domaine);
 		if (okClicked) {
-			mainApp.getDomaineData().add(domaine);
 			try {
 				String res = mainApp.getWebGate().add(domaine);
 				String jsonElement = mainApp.getWebGate().getControllerUrl(Domaine.class);
-				// Domaine d = mainApp.getWebGate().getJsonObject(res,
-				// jsonElement, Domaine.class);
+				Domaine d = (Domaine) mainApp.getWebGate().getJsonObject(res,jsonElement, Domaine.class);
+				mainApp.getDomaineData().add(domaine);
+				mainApp.showDomaineOverview();
 			} catch (IllegalArgumentException | IllegalAccessException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -79,6 +79,7 @@ public class DomaineController extends AbstractController {
 		if (selectedIndex >= 0) {
 			domaineList.getItems().remove(selectedIndex);
 			mainApp.getTaskQueue().delete(selectedDomaine, selectedDomaine.getId());
+			mainApp.showDomaineOverview();
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.initOwner(mainApp.getPrimaryStage());
