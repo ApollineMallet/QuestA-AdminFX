@@ -13,6 +13,7 @@ import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuestionController;
 import controllers.QuizController;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -26,6 +27,7 @@ import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Groupe_questionnaire;
 import qcm.models.pojo.Questionnaire;
+import qcm.models.pojo.Question;
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
 import qcm.utils.ViewUtils;
@@ -40,6 +42,7 @@ public class Main extends Application implements Observer {
 	private ObservableList<Domaine> domainesList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Question> questList;
 	private ObservableList<Groupe_questionnaire> GrquizList;
 	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
@@ -52,6 +55,7 @@ public class Main extends Application implements Observer {
 	private MainController mainController;
 	private Utilisateur activeUser;
 	private GroupController groupController;
+	private QuestionController questController;
 	private QuizController quizController;
 
 	@Override
@@ -108,6 +112,10 @@ public class Main extends Application implements Observer {
 
 	public void showGroupOverview() {
 		groupController = ViewUtils.loadCenterPane("/views/GroupView.fxml", this, AnchorPane.class);
+	}
+	public void showQuestOverview(){
+		questController = ViewUtils.loadCenterPane("/views/QuestionsView.fxml", this, AnchorPane.class);
+	
 	}
 
 	public void showDomaineOverview() {
@@ -211,6 +219,7 @@ public class Main extends Application implements Observer {
 		reponsesList = webGate.getList(Reponse.class);
 		domainesList = webGate.getList(Domaine.class);
 		groupeList = webGate.getList(Groupe.class);
+		questList = webGate.getList(Question.class);
 		
 
 		/*
@@ -220,6 +229,14 @@ public class Main extends Application implements Observer {
 		 * }
 		 */
 		// loadLists();
+	}
+
+	public ObservableList<Question> getQuestList() {
+		return questList;
+	}
+
+	public void setQuestList(ObservableList<Question> questList) {
+		this.questList = questList;
 	}
 
 	/**
@@ -310,6 +327,7 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Domaine.class);
 		taskQueue.getAll(Groupe.class);
 		taskQueue.getAll(Utilisateur.class);
+		taskQueue.getAll(Question.class);
 	}
 
 	public BorderPane getRootLayout() {

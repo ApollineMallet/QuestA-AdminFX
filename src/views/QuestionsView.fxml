@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="800.0" minWidth="1000.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #37474f;" styleClass="background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuestionController">
+   <children>
+      <SplitPane dividerPositions="0.4298245614035088" prefHeight="571.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane prefHeight="477.0" prefWidth="967.0">
+               <children>
+                  <TableView fx:id="questList" layoutX="-60.0" layoutY="109.0" prefHeight="493.0" prefWidth="340.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="120.0" text="Id" />
+                      <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="126.0" text="Libelle" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="287.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/pencil.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="189.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/add-circular-outlined-button.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/back-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="375.0" text="Gestions des questions" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="507.0" prefWidth="213.0">
+               <children>
+                  <TextField fx:id="idField" disable="true" prefHeight="0.0" prefWidth="0.0" visible="false" />
+                  <SplitPane layoutY="280.0" orientation="VERTICAL" prefHeight="318.0" prefWidth="371.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="280.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="595.0" prefWidth="450.0">
+                           <children>
+                              <SplitPane dividerPositions="0.5" layoutX="172.0" layoutY="73.0" prefHeight="274.0" prefWidth="543.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" mouseTransparent="true" prefHeight="588.0" prefWidth="232.0">
+                                       <children>
+                                          <TableView layoutX="34.0" layoutY="36.0" prefHeight="272.0" prefWidth="201.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="userColumn" prefWidth="267.0" text="Questionnaire" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView layoutX="34.0" layoutY="36.0" prefHeight="272.0" prefWidth="267.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="quizzColumn" prefWidth="266.0" text="Utilisateurs du questionnaire" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <GridPane fx:id="GrquizList" layoutX="12.0" layoutY="13.0" minHeight="241.0" minWidth="543.0" prefHeight="241.0" prefWidth="543.0" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="13.0">
+                    <columnConstraints>
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="78.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="351.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="68.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="libelleField" prefHeight="25.0" prefWidth="257.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="4.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <ButtonBar prefHeight="60.0" prefWidth="158.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <buttons>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </buttons>
+                        </ButtonBar>
+                        <Label text="Libellé :" textFill="WHITE" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

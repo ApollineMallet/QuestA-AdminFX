@@ -100,7 +100,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
+            <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleBtQuest" prefHeight="66.0" prefWidth="340.0" text="Questions">
                <font>
                   <Font size="20.0" />
                </font>

@@ -59,6 +59,10 @@ public class AccueilController extends AbstractController {
 	public void handleBtGroup() {
 		mainApp.showGroupOverview();
 	}
+	
+	public void handleBtQuest(){
+		mainApp.showQuestOverview();
+	}
 
 	public void handleBtDomaine() {
 		mainApp.showDomaineOverview();
