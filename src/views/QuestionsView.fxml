@@ -21,31 +21,31 @@
         <items>
           <AnchorPane prefHeight="477.0" prefWidth="967.0">
                <children>
-                  <TableView fx:id="questList" layoutX="-60.0" layoutY="109.0" prefHeight="493.0" prefWidth="340.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
+                  <TableView fx:id="questList" layoutX="-60.0" layoutY="268.0" prefHeight="534.0" prefWidth="426.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="268.0">
                     <columns>
-                        <TableColumn fx:id="idColumn" prefWidth="120.0" text="Id" />
-                      <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="126.0" text="Libelle" />
+                        <TableColumn fx:id="idColumn" minWidth="0.0" prefWidth="1.0" />
+                      <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="423.0" text="Libelle" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="287.0" layoutY="68.0" onMouseClicked="#handleEditQuestion" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="291.0" layoutY="173.0" onMouseClicked="#handleEditQuestion" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/pencil.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="189.0" layoutY="68.0" onMouseClicked="#handleAddQuest" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="189.0" layoutY="173.0" onMouseClicked="#handleAddQuest" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/add-circular-outlined-button.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="68.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="173.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/back-arrow.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="375.0" text="Gestions des questions" textAlignment="CENTER" textFill="WHITE">
+                  <Label layoutX="35.0" layoutY="103.0" prefHeight="25.0" prefWidth="375.0" text="Gestions des questions" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="37.0" />
                      </font>
@@ -91,7 +91,7 @@
                         </AnchorPane>
                     </items>
                   </SplitPane>
-                  <GridPane fx:id="GrquizList" layoutX="12.0" layoutY="13.0" minHeight="241.0" minWidth="543.0" prefHeight="241.0" prefWidth="543.0" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="13.0">
+                  <GridPane fx:id="GrquizList" layoutX="12.0" layoutY="69.0" minHeight="185.0" minWidth="543.0" prefHeight="185.0" prefWidth="543.0" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="69.0">
                     <columnConstraints>
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="78.0" />
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="351.0" />
@@ -117,7 +117,7 @@
                               </ImageView>
                            </buttons>
                         </ButtonBar>
-                        <Label text="Libellé :" textFill="WHITE" GridPane.rowIndex="2" />
+                        <Label text="Libellé :" textFill="WHITE" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane minHeight="800.0" minWidth="1000.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #37474f;" styleClass="background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GroupController">
+<AnchorPane minHeight="800.0" minWidth="1000.0" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #37474f;" styleClass="background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GroupController">
    <children>
       <SplitPane dividerPositions="0.4298245614035088" prefHeight="571.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane prefHeight="477.0" prefWidth="967.0">
                <children>
-                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="109.0" prefHeight="493.0" prefWidth="340.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="109.0">
+                  <TableView fx:id="groupList" layoutX="-60.0" layoutY="208.0" prefHeight="594.0" prefWidth="426.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="208.0">
                     <columns>
                         <TableColumn fx:id="codeColumn" prefWidth="120.0" text="Code" />
                       <TableColumn fx:id="libelleColumn" minWidth="0.0" prefWidth="126.0" text="Libelle" />
@@ -29,22 +29,22 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <ImageView fitHeight="25.0" fitWidth="301.0" layoutX="101.0" layoutY="14.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="301.0" layoutX="92.0" layoutY="100.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/titregroupe.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="278.0" layoutY="58.0" onMouseClicked="#handleEditGroupe" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="271.0" layoutY="146.0" onMouseClicked="#handleEditGroupe" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/pencil.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="188.0" layoutY="58.0" onMouseClicked="#handleAddDomaine" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="180.0" layoutY="146.0" onMouseClicked="#handleAddDomaine" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/add-circular-outlined-button.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="93.0" layoutY="58.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="40.0" fitWidth="33.0" layoutX="92.0" layoutY="146.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/back-arrow.png" />
                      </image>
@@ -90,7 +90,7 @@
                         </AnchorPane>
                     </items>
                   </SplitPane>
-                  <GridPane fx:id="GrquizList" layoutX="12.0" layoutY="13.0" minHeight="600.0" minWidth="800.0" prefHeight="252.0" prefWidth="429.0" AnchorPane.bottomAnchor="333.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="13.0">
+                  <GridPane fx:id="GrquizList" layoutX="12.0" layoutY="52.0" minHeight="202.0" minWidth="543.0" prefHeight="202.0" prefWidth="543.0" AnchorPane.bottomAnchor="544.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="52.0">
                     <columnConstraints>
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="78.0" />
                       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="351.0" />
