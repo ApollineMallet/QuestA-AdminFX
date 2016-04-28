@@ -1,23 +1,16 @@
 package controllers;
 
-import java.util.Observable;
-
 import application.Main;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
-import qcm.models.pojo.Rang;
 import qcm.models.pojo.Utilisateur;
-import qcm.utils.GenericCellFactory;
 
 public class EditController extends ModalController {
 
@@ -49,9 +42,6 @@ public class EditController extends ModalController {
 	@FXML
 	private Button btCancelDomaine;
 
-
-	
-	
 	private Questionnaire quiz;
 	@FXML
 	private TextField txtLibelleQuiz;
@@ -61,55 +51,44 @@ public class EditController extends ModalController {
 	private Button btValiderQuiz;
 	@FXML
 	private Button btCancelQuiz;
-	
+
 	public Main mainApp;
 
-	@SuppressWarnings("null")
 	public void setUser(Utilisateur user) {
 		this.user = user;
 		txtNomUser.setText(user.getNom());
 		txtPrenomUser.setText(user.getPrenom());
 		txtEmailUser.setText(user.getMail());
-		
-		/*ObservableList <Rang> lesRangs = mainApp.getRangData();
-		ObservableList <String> listRang = null;
-		for (Rang rg : lesRangs) {
-			listRang.add(rg.getLibelle());
-		}
-		comboxRang.setItems(listRang);*/
-		
+
+		// comboxRang.setItems(mainApp.getRangData());
 		comboxRang.getItems().addAll("utilisateur", "admin");
-		
+
 	}
 
-	
 	public void setGroup(Groupe group) {
 		this.group = group;
 		txtCode.setText(group.getCode());
 		txtLibelle.setText(group.getLibelle());
-		
-	}
 
+	}
 
 	public void setDomaine(Domaine domaine) {
 		this.domaine = domaine;
 		txtLibelleDomaine.setText(domaine.getLibelle());
 	}
 
-	
-	public void setQuiz (Questionnaire Q) {
+	public void setQuiz(Questionnaire Q) {
 		this.quiz = Q;
 		txtLibelleQuiz.setText(Q.getLibelle());
 		txtLibelleQuizDom.setText(Q.getDomaine().toString());
 	}
-	
-//	public void setGroup(Groupe group) {
-//		this.user = user;
-//		txtCode.setText(.getNom());
-//		txtPrenom.setText(user.getPrenom());
-//		txtEmail.setText(user.getMail());
-//	}
 
+	// public void setGroup(Groupe group) {
+	// this.user = user;
+	// txtCode.setText(.getNom());
+	// txtPrenom.setText(user.getPrenom());
+	// txtEmail.setText(user.getMail());
+	// }
 
 	/**
 	 * Called when the user clicks ok.
@@ -124,15 +103,15 @@ public class EditController extends ModalController {
 			dialogStage.close();
 		}
 	}
-	
+
 	@FXML
-	private void handleOkGroupe(){
+	private void handleOkGroupe() {
 		if (isInputValidGroupe()) {
-		group.setCode(txtCode.getText());
-		group.setLibelle(txtLibelle.getText());
-		okClicked = true;
-		dialogStage.close();
-			
+			group.setCode(txtCode.getText());
+			group.setLibelle(txtLibelle.getText());
+			okClicked = true;
+			dialogStage.close();
+
 		}
 	}
 
@@ -148,19 +127,15 @@ public class EditController extends ModalController {
 		}
 	}
 
-	
-	
 	@FXML
 	private void handleQuizOK() {
-		if(isInputValidQuiz()) {
+		if (isInputValidQuiz()) {
 			quiz.setLibelle(txtLibelleQuiz.getText());
-			//quiz.setDomaine(txtLibelleQuizDom.getselectedobject);
+			// quiz.setDomaine(txtLibelleQuizDom.getselectedobject);
 			okClicked = true;
 			dialogStage.close();
 		}
 	}
-	
-
 
 	/**
 	 * Validates the user input in the text fields.
@@ -195,7 +170,7 @@ public class EditController extends ModalController {
 			return false;
 		}
 	}
-	
+
 	private boolean isInputValidGroupe() {
 		String errorMessage = "";
 
@@ -205,7 +180,7 @@ public class EditController extends ModalController {
 		if (txtLibelle.getText() == null || txtLibelle.getText().length() == 0) {
 			errorMessage += "LibellÃ© non valide!\n";
 		}
-		
+
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {
@@ -248,15 +223,13 @@ public class EditController extends ModalController {
 		}
 	}
 
-
-	
 	private boolean isInputValidQuiz() {
 		String errorMessage = "";
-		
+
 		if (txtLibelleQuiz.getText() == null || txtLibelleQuiz.getText().length() == 0) {
 			errorMessage = "Libelle non valide !\n";
 		}
-		
+
 		if (errorMessage.length() == 0) {
 			return true;
 		} else {
@@ -270,8 +243,6 @@ public class EditController extends ModalController {
 			return false;
 		}
 	}
-
-	
 
 	/**
 	 * Called when the user clicks cancel.
