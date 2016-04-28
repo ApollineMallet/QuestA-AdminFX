@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Questionnaire;
+import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Question;
 import qcm.models.pojo.Utilisateur;
 import qcm.utils.*;
@@ -27,6 +28,7 @@ public class QuestionController extends AbstractController{
 	@FXML
     private TextField idField;
     
+	
     @FXML
     private TextField codeField;
 
@@ -43,9 +45,35 @@ public class QuestionController extends AbstractController{
     private TableView<Questionnaire> quizzList;
 	
 	 @FXML
-	    private TableColumn<Question, String> idColumn;
+	    private TableColumn<Question, Integer> idColumn;
 	 
 	 @FXML
+	    private TableColumn<Question, String> reponseColumn;
+	 
+	 public TableColumn<Question, String> getReponseColumn() {
+		return reponseColumn;
+	}
+
+	public void setReponseColumn(TableColumn<Question, String> reponseColumn) {
+		this.reponseColumn = reponseColumn;
+	}
+
+
+	@FXML
+	    private TableColumn<Question, Integer> idQuestColumn;
+	
+	
+	 
+	 public TableColumn<Question, Integer> getIdQuestColumn() {
+		return idQuestColumn;
+	}
+
+	public void setIdQuestColumn(TableColumn<Question, Integer> idQuestColumn) {
+		this.idQuestColumn = idQuestColumn;
+	}
+
+
+	@FXML
 	    private TableColumn<Question, String> libelleColumn;
 	 
 	 public TableColumn<Question, String> getLibelleColumn() {
@@ -146,7 +174,15 @@ public class QuestionController extends AbstractController{
     
     @FXML
 	private void initialize() {
-    		
+    	
+    
+    	
+    	
+    	
+    	idColumn.setCellValueFactory((CellDataFeatures<Question, Integer> feature) -> {
+			Question quest = feature.getValue();
+			return new SimpleObjectProperty<>(quest.getIdQuestionnaire());
+		});	
 		libelleColumn.setCellValueFactory((CellDataFeatures<Question, String> feature) -> {
 			Question quest = feature.getValue();
 			return new SimpleObjectProperty<>(quest.getLibelle());
@@ -169,11 +205,11 @@ questList.getSelectionModel().selectedItemProperty().addListener((observable, ol
   	
   	}
 	 
-	 public TableColumn<Question, String> getIdColumn() {
+	 public TableColumn<Question, Integer> getIdColumn() {
 		return idColumn;
 	}
 
-	public void setIdColumn(TableColumn<Question, String> idColumn) {
+	public void setIdColumn(TableColumn<Question, Integer> idColumn) {
 		this.idColumn = idColumn;
 	}
 

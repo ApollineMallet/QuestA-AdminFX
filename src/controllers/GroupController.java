@@ -57,6 +57,8 @@ public class GroupController extends AbstractController{
     
     @FXML
     private TextField codeField;
+    
+    
 
     @FXML
     private TextField libelleField;
@@ -216,6 +218,10 @@ public class GroupController extends AbstractController{
     public void handleBtRetour() {
 		mainApp.showAccueilview();
 	}
+    
+    public void showUser() {
+  		mainApp.showPersonOverview();
+  	}
   
     
 //    @FXML
