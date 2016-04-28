@@ -56,7 +56,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             
-            <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="690.0" text="Domaines">
+            <Button fx:id="btDomaines" layoutX="275.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtDomaine" prefHeight="66.0" prefWidth="340.0" text="Domaines">
                <font>
                   <Font size="20.0" />
                </font>
@@ -84,7 +84,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
              </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="497.0" layoutY="253.0" onMouseClicked="#handleBtDomaine" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="285.0" layoutY="253.0" onMouseClicked="#handleBtDomaine" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/domain.png" />
              	 </image>
@@ -135,6 +135,14 @@
                   <Image url="@img/bienvenue.png" />
                </image>
             </ImageView>
+            <Button fx:id="btRangs" layoutX="625.0" layoutY="245.0" mnemonicParsing="false" onAction="#handleBtRang" prefHeight="66.0" prefWidth="340.0" text="Rangs">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             
          </children>
       </AnchorPane>

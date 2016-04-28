@@ -10,7 +10,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import qcm.models.pojo.Questionnaire;
-import qcm.models.pojo.Utilisateur;
 
 public class QuizController extends AbstractController {
 	

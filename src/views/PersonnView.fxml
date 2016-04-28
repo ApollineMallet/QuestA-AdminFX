@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -78,17 +80,70 @@
                            </GridPane.margin>
                         </Text>
                         <Label fx:id="rangLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="rangTitre" text="Rang" visible="false" GridPane.rowIndex="3" />
+                        <Label fx:id="rangTitre" text="Rang" visible="false" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></Label>
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="56.0" layoutY="421.0" prefHeight="40.0" prefWidth="372.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="78.0">
-                    <buttons>
-                      <Button mnemonicParsing="false" onAction="#handleAddUser" onDragDetected="#handleAddUser" prefHeight="1.0" text="Ajouter" />
-                        <Button mnemonicParsing="false" onAction="#handleEditUser" text="Modifier" />
-                        <Button mnemonicParsing="false" onAction="#deleteUser" text="Supprimer" />
-                        <Button fx:id="btRetour" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="25.0" prefWidth="75.0" text="Retour" />
-                    </buttons>
-                  </ButtonBar>
+                  <Button alignment="BOTTOM_CENTER" layoutX="92.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleAddUser" prefHeight="101.0" prefWidth="150.0" text="Ajouter">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="btRetour1" alignment="BOTTOM_CENTER" layoutX="92.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBtRetour" prefHeight="101.0" prefWidth="150.0" text="Retour">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="BOTTOM_CENTER" layoutX="269.0" layoutY="165.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="101.0" prefWidth="150.0" text="Supprimer">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button alignment="BOTTOM_CENTER" layoutX="269.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleEditUser" prefHeight="101.0" prefWidth="150.0" text="Modifier">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="142.0" layoutY="296.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/back.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" focusTraversable="true" layoutX="142.0" layoutY="178.0" onMouseClicked="#handleAddUser" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/add.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" focusTraversable="true" layoutX="319.0" layoutY="178.0" onMouseClicked="#handleAddUser" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/DeleteRed.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="320.0" layoutY="296.0" onMouseClicked="#handleBtRetour" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/edit.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children>
             </AnchorPane>
         </items>

@@ -30,12 +30,23 @@ public class WebGate {
 		restUrlMappings.put("Reponse", "reponse");
 		restUrlMappings.put("Domaine", "domaine");
 		restUrlMappings.put("Groupe", "groupe");
+		restUrlMappings.put("Rang", "rang");
 		restUrlMappings.put("Groupe_questionnaire", "quizzgroup");
 		restUrlMappings.put("Utilisateur_groupe", "usergroup");
 		restUrlMappings.put("Question_questionnaire", "questquizz");
 	}
 
-	private <T> String getControllerUrl(Class<T> clazz) {
+	public <T> Object getJsonObject(String json, String jsonElement, Class<T> clazz) {
+		Gson gson = MyGsonBuilder.create();
+		Object o = null;
+		JsonObject jso = gson.fromJson(json, JsonObject.class);
+		if (jso.get("error") == null) {
+			o = gson.fromJson(jso.get(jsonElement), clazz);
+		}
+		return o;
+	}
+
+	public <T> String getControllerUrl(Class<T> clazz) {
 		String result = clazz.getSimpleName();
 		if (restUrlMappings.containsKey(result))
 			result = restUrlMappings.get(clazz.getSimpleName());

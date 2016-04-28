@@ -15,6 +15,7 @@ import controllers.MainController;
 import controllers.PersonnViewController;
 import controllers.QuestionController;
 import controllers.QuizController;
+import controllers.RangController;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -27,7 +28,11 @@ import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
 import qcm.models.pojo.Groupe_questionnaire;
 import qcm.models.pojo.Questionnaire;
+
 import qcm.models.pojo.Question;
+
+import qcm.models.pojo.Rang;
+
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
 import qcm.utils.ViewUtils;
@@ -40,6 +45,7 @@ public class Main extends Application implements Observer {
 	private BorderPane rootLayout;
 	private ObservableList<Utilisateur> usersList;
 	private ObservableList<Domaine> domainesList;
+	private ObservableList<Rang> rangsList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
 	private ObservableList<Question> questList;
@@ -49,6 +55,7 @@ public class Main extends Application implements Observer {
 	
 
 	private DomaineController domaineController;
+	private RangController rangController;
 	private AccueilController accueilController;
 	private WebGate webGate;
 	private TaskQueue taskQueue;
@@ -124,6 +131,10 @@ public class Main extends Application implements Observer {
 
 	public void showQuizOverview() {
 		quizController = ViewUtils.loadCenterPane("/views/Quiz.fxml", this, AnchorPane.class);
+	}
+	
+	public void showRangOverview() {
+		rangController = ViewUtils.loadCenterPane("/views/RangView.fxml", this, AnchorPane.class);
 	}
 
 	/**
@@ -229,8 +240,12 @@ public class Main extends Application implements Observer {
 		reponsesList = webGate.getList(Reponse.class);
 		domainesList = webGate.getList(Domaine.class);
 		groupeList = webGate.getList(Groupe.class);
+
 		questList = webGate.getList(Question.class);
 		
+
+		rangsList = webGate.getList(Rang.class);
+
 
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
@@ -272,7 +287,13 @@ public class Main extends Application implements Observer {
 		this.usersList = personData;
 	}
 	
+	public ObservableList<Rang> getRangData() {
+		return rangsList;
+	}
 	
+	public void setRangData(ObservableList<Rang> rangData) {
+		this.rangsList = rangData;
+	}	
 	
 	public ObservableList<Groupe> getGroupData() {
 		return groupeList;
