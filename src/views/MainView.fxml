@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
@@ -37,6 +38,9 @@
                <padding>
                   <Insets bottom="3.0" left="3.0" top="1.0" />
                </padding>
+               <effect>
+                  <ColorInput />
+               </effect>
             </ProgressBar>
          </children>
       </HBox>

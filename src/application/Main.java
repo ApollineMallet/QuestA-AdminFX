@@ -13,6 +13,7 @@ import controllers.GroupController;
 import controllers.LoginController;
 import controllers.MainController;
 import controllers.PersonnViewController;
+import controllers.QuestionController;
 import controllers.QuizController;
 import controllers.RangController;
 import javafx.application.Application;
@@ -25,8 +26,13 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import qcm.models.pojo.Domaine;
 import qcm.models.pojo.Groupe;
+import qcm.models.pojo.Groupe_questionnaire;
 import qcm.models.pojo.Questionnaire;
+
+import qcm.models.pojo.Question;
+
 import qcm.models.pojo.Rang;
+
 import qcm.models.pojo.Reponse;
 import qcm.models.pojo.Utilisateur;
 import qcm.utils.ViewUtils;
@@ -42,8 +48,12 @@ public class Main extends Application implements Observer {
 	private ObservableList<Rang> rangsList;
 	private ObservableList<Questionnaire> quizList;
 	private ObservableList<Reponse> reponsesList;
+	private ObservableList<Question> questList;
+	private ObservableList<Groupe_questionnaire> GrquizList;
 	private ObservableList<Groupe> groupeList;
 	private PersonnViewController personnViewController;
+	
+
 	private DomaineController domaineController;
 	private RangController rangController;
 	private AccueilController accueilController;
@@ -52,6 +62,7 @@ public class Main extends Application implements Observer {
 	private MainController mainController;
 	private Utilisateur activeUser;
 	private GroupController groupController;
+	private QuestionController questController;
 	private QuizController quizController;
 
 	@Override
@@ -109,6 +120,10 @@ public class Main extends Application implements Observer {
 	public void showGroupOverview() {
 		groupController = ViewUtils.loadCenterPane("/views/GroupView.fxml", this, AnchorPane.class);
 	}
+	public void showQuestOverview(){
+		questController = ViewUtils.loadCenterPane("/views/QuestionsView.fxml", this, AnchorPane.class);
+	
+	}
 
 	public void showDomaineOverview() {
 		domaineController = ViewUtils.loadCenterPane("/views/DomaineView.fxml", this, AnchorPane.class);
@@ -148,6 +163,16 @@ public class Main extends Application implements Observer {
 			public String apply(EditController t) {
 				t.setGroup(groupe);
 				return "Edition groupe";
+			}
+		});
+	}
+	
+	public boolean showQuestEditDialog(Question quest) {
+		return ViewUtils.showDialog("/views/EditQuest.fxml", primaryStage, new Function<EditController, String>() {
+			@Override
+			public String apply(EditController t) {
+				t.setQuest(quest);
+				return "Edition question";
 			}
 		});
 	}
@@ -215,7 +240,12 @@ public class Main extends Application implements Observer {
 		reponsesList = webGate.getList(Reponse.class);
 		domainesList = webGate.getList(Domaine.class);
 		groupeList = webGate.getList(Groupe.class);
+
+		questList = webGate.getList(Question.class);
+		
+
 		rangsList = webGate.getList(Rang.class);
+
 
 		/*
 		 * try { List<Utilisateur> users = webGate.getAll(Utilisateur.class);
@@ -226,11 +256,21 @@ public class Main extends Application implements Observer {
 		// loadLists();
 	}
 
+	public ObservableList<Question> getQuestList() {
+		return questList;
+	}
+
+	public void setQuestList(ObservableList<Question> questList) {
+		this.questList = questList;
+	}
+
 	/**
 	 * Returns the main stage.
 	 * 
 	 * @return
 	 */
+
+	
 	public Stage getPrimaryStage() {
 		return primaryStage;
 	}
@@ -261,6 +301,13 @@ public class Main extends Application implements Observer {
 
 	public void setGroupData(ObservableList<Groupe> groupData) {
 		this.groupeList = groupData;
+		}
+	public ObservableList<Question> getQuestData() {
+		return questList;
+	}
+
+	public void setQuestData(ObservableList<Question> questData) {
+		this.questList = questData;
 		}
 
 	public ObservableList<Domaine> getDomaineData() {
@@ -318,6 +365,7 @@ public class Main extends Application implements Observer {
 		taskQueue.getAll(Domaine.class);
 		taskQueue.getAll(Groupe.class);
 		taskQueue.getAll(Utilisateur.class);
+		taskQueue.getAll(Question.class);
 	}
 
 	public BorderPane getRootLayout() {
@@ -342,6 +390,22 @@ public class Main extends Application implements Observer {
 
 	public ObservableList<Groupe> getGroupeList() {
 		return groupeList;
+	}
+
+	public ObservableList<Questionnaire> getQuizList() {
+		return quizList;
+	}
+
+	public void setQuizList(ObservableList<Questionnaire> quizList) {
+		this.quizList = quizList;
+	}
+
+	public ObservableList<Utilisateur> getUsersList() {
+		return usersList;
+	}
+
+	public void setUsersList(ObservableList<Utilisateur> usersList) {
+		this.usersList = usersList;
 	}
 
 	public void setGroupeList(ObservableList<Groupe> groupeList) {

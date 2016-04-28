@@ -100,7 +100,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleDisconnect" prefHeight="66.0" prefWidth="340.0" text="Questions">
+            <Button fx:id="btQuestion" layoutX="625.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleBtQuest" prefHeight="66.0" prefWidth="340.0" text="Questions">
                <font>
                   <Font size="20.0" />
                </font>
@@ -143,6 +143,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="635.0" layoutY="253.0" onMouseClicked="#handleDisconnect" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/star.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
             
          </children>
       </AnchorPane>
